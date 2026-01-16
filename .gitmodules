@@ -1,0 +1,4 @@
+[submodule "themes/PaperMod-somni"]
+	path = themes/PaperMod-somni
+	url = https://github.com/somnisomni/Hugo-PaperMod-somni
+	branch = main

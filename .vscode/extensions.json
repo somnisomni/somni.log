@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "budparr.language-hugo-vscode",
+    "rusnasonov.vscode-hugo",
+    "kaellarkin.hugo-shortcode-syntax",
+    "tamasfe.even-better-toml",
+    "eliostruyf.vscode-front-matter"
+  ]
+}

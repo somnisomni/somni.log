@@ -1,0 +1,4 @@
+baseURL = 'https://log.somni.one/'
+languageCode = 'ko-kr'
+title = '솜니.로그'
+theme = 'PaperMod-somni'
