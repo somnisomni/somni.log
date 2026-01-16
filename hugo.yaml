@@ -9,11 +9,34 @@ hasCJKLanguage: true
 enableRobotsTXT: true
 enableEmoji: true
 
+defaultContentLanguage: "ko"
+languages:
+  ko:
+    languageName: "한국어"
+    weight: 1
+  en:
+    languageName: "English"
+    weight: 2
+    title: "somni.log"
+    params:
+      homeInfoParams:
+        title: "somni.log"
+  ja:
+    languageName: "日本語"
+    weight: 3
+    title: "somni.log"
+    params:
+      homeInfoParams:
+        title: "somni.log"
+
 params:
   author: "somni"
   description: "somni.log: 솜니가 삽질하고 부딪히고 깨지고 경험하고 배운 것들의 아카이브"
   dateFormat: "2006/01/02"
   comments: true
+
+  # Temporary disable because there's no translated content yet
+  disableLangToggle: true
 
   homeInfoParams:
     title: "솜니.로그"
