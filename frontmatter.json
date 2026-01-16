@@ -3,43 +3,49 @@
   "frontMatter.taxonomy.contentTypes": [
     {
       "name": "default",
-      "pageBundle": false,
+      "pageBundle": true,
       "previewPath": null,
       "fields": [
         {
-          "title": "Title",
+          "title": "제목",
           "name": "title",
           "type": "string"
         },
         {
-          "title": "Description",
+          "title": "설명",
           "name": "description",
           "type": "string"
         },
         {
-          "title": "Publishing date",
+          "title": "URL 경로 (Slug)",
+          "name": "slug",
+          "type": "string",
+          "default": "{{title}}"
+        },
+        {
+          "title": "게시 일자",
           "name": "date",
           "type": "datetime",
           "default": "{{now}}",
           "isPublishDate": true
         },
         {
-          "title": "Content preview",
+          "title": "내용 미리보기",
           "name": "preview",
           "type": "image"
         },
         {
-          "title": "Is in draft",
+          "title": "초안 여부",
           "name": "draft",
           "type": "draft"
         },
         {
-          "title": "Tags",
+          "title": "태그",
           "name": "tags",
           "type": "tags"
         },
         {
-          "title": "Categories",
+          "title": "카테고리",
           "name": "categories",
           "type": "categories"
         }
@@ -52,5 +58,6 @@
       "path": "[[workspace]]/content/posts"
     }
   ],
-  "frontMatter.git.enabled": true
+  "frontMatter.git.enabled": true,
+  "frontMatter.website.host": "https://log.somni.one"
 }
