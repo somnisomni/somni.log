@@ -14,7 +14,8 @@
         {
           "title": "설명",
           "name": "description",
-          "type": "string"
+          "type": "string",
+          "required": false
         },
         {
           "title": "URL 경로 (Slug)",
@@ -30,9 +31,16 @@
           "isPublishDate": true
         },
         {
-          "title": "내용 미리보기",
-          "name": "preview",
-          "type": "image"
+          "title": "헤더(미리보기) 이미지",
+          "name": "cover",
+          "type": "fields",
+          "fields": [
+            {
+              "title": "이미지",
+              "name": "image",
+              "type": "image"
+            }
+          ]
         },
         {
           "title": "초안 여부",
@@ -43,11 +51,6 @@
           "title": "태그",
           "name": "tags",
           "type": "tags"
-        },
-        {
-          "title": "카테고리",
-          "name": "categories",
-          "type": "categories"
         }
       ]
     }
@@ -58,6 +61,5 @@
       "path": "[[workspace]]/content/posts"
     }
   ],
-  "frontMatter.git.enabled": true,
-  "frontMatter.website.host": "https://log.somni.one"
+  "frontMatter.git.enabled": true
 }
