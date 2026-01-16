@@ -50,6 +50,8 @@ params:
     title: "솜니.로그"
     content: "somni.log: 솜니가 삽질하고 부딪히고 깨지고 경험하고 배운 것들의 아카이브"
 
+  contentLicense: "이 블로그의 모든 글은 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed)에 따라 이용할 수 있습니다. (글 내 라이선스가 명시된 일부 콘텐츠 제외)"
+
   socialIcons:
     - name: Homepage
       title: "홈페이지 (somni.one)"
