@@ -3,11 +3,12 @@ title: "오드로이드 N2+: 삽질의 서막"
 slug: bought-odroid-n2plus
 date: 2022-11-05T19:42:00.000Z
 draft: false
-tags: 
-  - "SBC"
-  - "하드웨어"
+tags:
+  - SBC
+  - 하드웨어
 cover:
   image: header.png
+  relative: true
 ---
 
 ![오드로이드 N2+ 결제 완료 페이지 스크린샷](odroidn2p-purchased.png)
