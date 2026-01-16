@@ -7,7 +7,7 @@ tags:
   - SBC
   - 하드웨어
 cover:
-  image: header.png
+  image: odroidn2p-purchased.png
   relative: true
 ---
 
