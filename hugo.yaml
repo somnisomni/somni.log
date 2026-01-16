@@ -1,0 +1,27 @@
+baseURL: "https://log.somni.one/"
+languageCode: "ko-kr"
+timeZone: "Asia/Seoul"
+title: "솜니.로그"
+theme: "PaperMod-somni"
+
+hasCJKLanguage: true
+enableRobotsTXT: true
+enableEmoji: true
+
+params:
+  author: "somni"
+  description: "somni.log: 솜니가 삽질하고 부딪히고 깨지고 경험하고 배운 것들의 아카이브"
+  dateFormat: "2006/01/02"
+  comments: true
+
+  homeInfoParams:
+    title: "솜니.로그"
+    content: "somni.log: 솜니가 삽질하고 부딪히고 깨지고 경험하고 배운 것들의 아카이브"
+
+  socialIcons:
+    - name: Homepage
+      title: "홈페이지 (somni.one)"
+      url: "https://somni.one/"
+    - name: GitHub
+      title: "GitHub (@somnisomni)"
+      url: "https://github.com/somnisomni"
