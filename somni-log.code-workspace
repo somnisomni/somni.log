@@ -1,0 +1,63 @@
+{
+	"folders": [
+		{
+			"name": "[Root]",
+			"path": "."
+		},
+		{
+			"name": "[Contents]",
+			"path": "./content"
+		}
+	],
+	"settings": {
+		"markdown.editor.updateLinksOnPaste.enabled": true,
+		"markdown.preview.fontFamily": "'MaruBuri', 'MaruBuriOTF', 'Maru Buri', 'Noto Serif CJK KR', 'Noto Serif CJK JP', 'Noto Serif KR', 'Noto Serif JP', 'Noto Serif', serif",
+		"gitlens.codeLens.enabled": false,
+		"gitlens.currentLine.enabled": false,
+		"frontMatter.dashboard.openOnStart": true,
+		"[markdown]": {
+			"editor.wordWrap": "on",
+			"editor.fontFamily": "'MaruBuri', 'MaruBuriOTF', 'Maru Buri', 'Noto Serif CJK KR', 'Noto Serif CJK JP', 'Noto Serif KR', 'Noto Serif JP', 'Noto Serif', serif",
+			"editor.fontSize": 18,
+			"editor.fontWeight": "normal",
+			"editor.lineHeight": 1.5,
+			"editor.lineNumbers": "interval",
+			"editor.quickSuggestions": {
+				"other": "on",
+				"comments": "off",
+				"strings": "off"
+			},
+			"editor.renderWhitespace": "all",
+			"editor.minimap.enabled": false,
+			"editor.inlayHints.enabled": "offUnlessPressed",
+			"editor.inlineSuggest.enabled": false,
+			"editor.cursorWidth": 3,
+			"editor.codeLens": false,
+			"github.copilot.nextEditSuggestions.enabled": false
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"budparr.language-hugo-vscode",
+			"rusnasonov.vscode-hugo",
+			"kaellarkin.hugo-shortcode-syntax",
+			"tamasfe.even-better-toml",
+			"eliostruyf.vscode-front-matter"
+		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "hugo: Serve site",
+				"type": "hugo",
+				"task": "server",
+				"group": {
+					"kind": "build",
+					"isDefault": true
+				},
+				"problemMatcher": []
+			}
+		]
+	}
+}
