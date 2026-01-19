@@ -71,5 +71,12 @@
   "frontMatter.git.enabled": true,
   "frontMatter.content.publicFolder": "static",
   "frontMatter.framework.id": "hugo",
-  "frontMatter.preview.host": "http://localhost:1313"
+  "frontMatter.preview.host": "http://localhost:1313",
+  "frontMatter.content.snippets": {
+    "Image Figure": {
+      "description": "Insert an image as figure shortcode",
+      "body": "{{< figure src=\"[[&filename]]\" attr=\"[[caption]]\" >}}",
+      "isMediaSnippet": true
+    }
+  }
 }
