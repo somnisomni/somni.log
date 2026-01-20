@@ -11,9 +11,10 @@ cover:
   relative: true
 ---
 
-{{< figure src="odroidn2p-purchased.png" attr="오드로이드 N2+ 결제 완료 페이지 스크린샷" >}}
+{{< figure src="odroidn2p-purchased.png" caption="오드로이드 N2+ 결제 완료 페이지 스크린샷" >}}
 
 하드커널 웹사이트 장바구니에 [오드로이드 N2+](https://www.hardkernel.com/ko/shop/odroid-n2-with-4gbyte-ram-2/)를 넣었다 뺐다 한 지 어언 2주 째 *(맞나? 몰?루)*... 눈 딱 감고 "결제하기" 버튼을 눌러버렸습니다.
+
 
 ## 갑자기 이걸 왜 샀는가??
 
@@ -23,7 +24,7 @@ cover:
 
 그렇게 자기 주장이 강한 친구들 사이에서도 작지만 유독 그 존재감이 큰 친구가 있는데 바로바로...
 
-{{< figure src="rpi3b-and-parts.png" attr="라즈베리파이 3B와 잡다한 부품들" >}}
+{{< figure src="rpi3b-and-parts.png" caption="라즈베리파이 3B와 잡다한 부품들" >}}
 
 약 4~5년의 세월을 거쳐 노동<sup>~~혹사~~</sup>을 하고 있는 우리 [**라즈베리파이 3B**](https://www.raspberrypi.com/products/raspberry-pi-3-model-b/) 되시겠습니다~~ 일 하고 있는 당신을 위해 박수~~ 짝짝
 
@@ -49,7 +50,7 @@ cover:
 
 <p style="color: gray;"><i>(x86 기반 SBC는 선택지에서 예외였습니다. x86 기반은 매우 범용적이고 일반 PC와 구조가 거의 동일하여 삽질할 것도 없어 편하지만, 셀러론이라고 해도 소비 전력 대비 필요 이상의 성능을 가지고 있기도 하고, 보드 자체만 해도 가격이 ARM SBC에 비하면 확실히 비쌉니다. 심지어 RAM도 따로 사서 달아줘야하다니! 말도 안돼요!)</i></p>
 
-{{< figure src="devicemart-rpi4b.png" attr="디바이스마트에 리스팅된 라즈베리파이 4B" >}}
+{{< figure src="devicemart-rpi4b.png" caption="디바이스마트에 리스팅된 라즈베리파이 4B" >}}
 
 가격은 전에 봤을 때보단 조금 내려간 것 같네요. 그럼 뭐하나요? **다 품절인데.**
 
@@ -57,14 +58,14 @@ cover:
 
 ASUS TinkerBoard 시리즈는 디바이스마트에서도 판매하기에 한 번 찾아봤는데, 역시나 **가격도 비정상적이였고 대부분 품절**이였습니다. 품절이 아니더라도 가격대가 성능 대비 너무 마음에 들지 않아서 손을 대지도 않았습니다.
 
-{{< figure src="devicemart-tinkerboard.png" attr="디바이스마트에 리스팅된 TinkerBoard 시리즈. 가격과 재고 상태가 이게 맞나...?" >}}
+{{< figure src="devicemart-tinkerboard.png" caption="디바이스마트에 리스팅된 TinkerBoard 시리즈. 가격과 재고 상태가 이게 맞나...?" >}}
 
 
 ## 오드로이드, 너로 정했다!
 
 그럼 선택지는 하나로 줄었습니다. 바로 **하드커널 오드로이드 시리즈**! 고등학교 동아리에서 라즈베리파이를 들들 볶고 삶는 와중에도 들어본 SBC 라인업이라, 거부감없이 [하드커널 홈페이지](https://www.hardkernel.com/)에 접속하여 제품 목록을 살펴봤습니다.
 
-{{< figure src="hardkernel-listings.png" attr="글 작성 시점 하드커널에서 판매 중인 SBC 제품들" >}}
+{{< figure src="hardkernel-listings.png" caption="글 작성 시점 하드커널에서 판매 중인 SBC 제품들" >}}
 
 생각보다 꽤 많은 제품군을 보유하고 있네요. 하지만 게임 에뮬레이팅 용도의 ODROID-GO 시리즈와 x86 SBC인 ODROID-H 시리즈, 검증되었지만 너무 오래된 ODROID-XU4 시리즈를 제외하면 [ODROID-HC4](https://www.hardkernel.com/ko/shop/odroid-hc4-oled/), [ODROID-C4](https://www.hardkernel.com/ko/shop/odroid-c4/), [ODROID-N2+](https://www.hardkernel.com/ko/shop/odroid-n2-with-4gbyte-ram-2/), [ODROID-M1](https://www.hardkernel.com/ko/shop/odroid-m1-with-8gbyte-ram/)만 남게 됩니다.
 
