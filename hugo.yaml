@@ -44,6 +44,9 @@ params:
   dateFormat: "2006/01/02"
   comments: true
   showBreadCrumbs: false
+  displayFullLangName: true
+  showPostNavLinks: true
+  showAllPagesInArchive: true
 
   # Temporary disable because there's no translated content yet
   disableLangToggle: true
