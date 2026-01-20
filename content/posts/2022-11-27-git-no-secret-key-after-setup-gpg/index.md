@@ -3,7 +3,7 @@ title: Git GPG 서명 설정 후 커밋 시 개인 키 없음 오류 해결
 slug: git-no-secret-key-after-setup-gpg
 date: 2022-11-27T03:14:00.000Z
 cover:
-  image: "gpg-key-registered.png"
+  image: gpg-key-registered.png
   relative: true
 draft: false
 tags:
