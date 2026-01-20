@@ -1,0 +1,11 @@
+{
+	"Figure shortcode (short)": {
+		"scope": "markdown",
+		"prefix": "figure-short",
+		"body": [
+			"{{< figure src=\"$1\" caption=\"$2\" >}}",
+			""
+		],
+		"description": "Hugo figure shortcode (short version)"
+	}
+}
