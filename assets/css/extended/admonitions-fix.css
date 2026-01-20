@@ -1,0 +1,3 @@
+.admonition-content code:not(pre > code) {
+  color: var(--code-fg) !important;
+}
