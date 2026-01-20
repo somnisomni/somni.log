@@ -21,8 +21,18 @@ languages:
     weight: 2
     title: "somni.log"
     params:
+      description: "somni.log: A humble place where my experiences, mistakes, and learnings are archived."
       homeInfoParams:
         title: "somni.log"
+        content: "somni.log: A humble place where my experiences, mistakes, and learnings are archived."
+      contentLicense: "All writings on this blog are licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed), unless otherwise specified within the content."
+      socialIcons:
+        - name: Homepage
+          title: "Homepage (somni.one)"
+          url: "https://somni.one/"
+        - name: GitHub
+          title: "GitHub (@somnisomni)"
+          url: "https://github.com/somnisomni"
   ja:
     languageName: "日本語"
     weight: 3
