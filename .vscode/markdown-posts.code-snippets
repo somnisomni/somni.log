@@ -1,4 +1,5 @@
 {
+	/* Figure */
 	"Figure shortcode (short)": {
 		"scope": "markdown",
 		"prefix": "figure-short",
@@ -7,5 +8,97 @@
 			""
 		],
 		"description": "Hugo figure shortcode (short version)"
+	},
+
+	/* Callout (hugo-admonitions) */
+	"Callout - Note": {
+		"scope": "markdown",
+		"prefix": "callout-note",
+		"body": [
+			"> [!NOTE] $1",
+			"> $2"
+		],
+		"description": "Insert a callout box with NOTE style using hugo-admonitions"
+	},
+	"Callout - Notify": {
+		"scope": "markdown",
+		"prefix": "callout-notify",
+		"body": [
+			"> [!NOTIFY] $1",
+			"> $2"
+		],
+		"description": "Insert a callout box with NOTIFY style using hugo-admonitions"
+	},
+	"Callout - Info": {
+		"scope": "markdown",
+		"prefix": "callout-info",
+		"body": [
+			"> [!INFO] $1",
+			"> $2"
+		],
+		"description": "Insert a callout box with INFO style using hugo-admonitions"
+	},
+	"Callout - Tip": {
+		"scope": "markdown",
+		"prefix": "callout-tip",
+		"body": [
+			"> [!TIP] $1",
+			"> $2"
+		],
+		"description": "Insert a callout box with TIP style using hugo-admonitions"
+	},
+	"Callout - Conclusion": {
+		"scope": "markdown",
+		"prefix": "callout-conclusion",
+		"body": [
+			"> [!CONCLUSION] $1",
+			"> $2"
+		],
+		"description": "Insert a callout box with CONCLUSION style using hugo-admonitions"
+	},
+	"Callout - Warning": {
+		"scope": "markdown",
+		"prefix": "callout-warning",
+		"body": [
+			"> [!WARNING] $1",
+			"> $2"
+		],
+		"description": "Insert a callout box with WARNING style using hugo-admonitions"
+	},
+	"Callout - Caution": {
+		"scope": "markdown",
+		"prefix": "callout-caution",
+		"body": [
+			"> [!CAUTION] $1",
+			"> $2"
+		],
+		"description": "Insert a callout box with CAUTION style using hugo-admonitions"
+	},
+	"Callout - Danger": {
+		"scope": "markdown",
+		"prefix": "callout-danger",
+		"body": [
+			"> [!DANGER] $1",
+			"> $2"
+		],
+		"description": "Insert a callout box with DANGER style using hugo-admonitions"
+	},
+	"Callout - Important": {
+		"scope": "markdown",
+		"prefix": "callout-important",
+		"body": [
+			"> [!IMPORTANT] $1",
+			"> $2"
+		],
+		"description": "Insert a callout box with IMPORTANT style using hugo-admonitions"
+	},
+	"Callout - TLDR": {
+		"scope": "markdown",
+		"prefix": "callout-tldr",
+		"body": [
+			"> [!CONCLUSION] TL;DR",
+			"> - $2"
+		],
+		"description": "Insert a TL;DR callout box using hugo-admonitions"
 	}
 }
