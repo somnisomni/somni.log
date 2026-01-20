@@ -1,4 +1,4 @@
-baseURL: "https://log.somni.one/"
+# baseURL: "https://log.somni.one/"
 languageCode: "ko-kr"
 timeZone: "Asia/Seoul"
 title: "솜니.로그"
