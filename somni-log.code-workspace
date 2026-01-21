@@ -34,7 +34,8 @@
 			"editor.cursorWidth": 3,
 			"editor.codeLens": false,
 			"github.copilot.nextEditSuggestions.enabled": false
-		}
+		},
+		"frontMatter.panel.openOnSupportedFile": true
 	},
 	"extensions": {
 		"recommendations": [
