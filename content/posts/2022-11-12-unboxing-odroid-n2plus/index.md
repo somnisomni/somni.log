@@ -3,7 +3,7 @@ title: "오드로이드 N2+: 언박싱"
 slug: unboxing-odroid-n2plus
 date: 2022-11-12T18:46:00.000Z
 cover:
-  image: odroidn2p-board.jpg
+  image: odroidn2p-board-emmc.jpg
   relative: true
 draft: false
 tags:
