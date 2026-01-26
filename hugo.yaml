@@ -80,6 +80,9 @@ params:
     title: "솜니.로그"
     content: "somni.log: 솜니가 삽질하고 부딪히고 깨지고 경험하고 배운 것들의 아카이브"
 
+  label:
+    text: "somni.log"
+
   socialIcons:
     - name: Homepage
       title: "홈페이지 (somni.one)"
