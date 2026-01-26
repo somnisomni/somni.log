@@ -1,10 +1,59 @@
 <div class="comments">
-  <script src="https://utteranc.es/client.js"
-          repo="somnisomni/somni.log"
-          issue-term="pathname"
-          label="Post Comments"
-          theme="preferred-color-scheme"
-          crossorigin="anonymous"
-          async>
+  <script>
+    // Utterances comments integration with theme support
+    // ref: https://github.com/utterance/utterances/issues/549#issuecomment-907606127
+
+    (() => {
+      function getAppropriateTheme() {
+        let theme = document.querySelector("html").dataset.theme;
+
+        if(theme === "dark") {
+          theme = "github-dark";
+        } else if(theme === "light") {
+          theme = "github-light";
+        } else {
+          if(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            theme = "github-dark";
+          } else {
+            theme = "github-light";
+          }
+        }
+
+        return theme;
+      }
+
+      function createUtterances() {
+        const script = document.createElement("script");
+        script.src = "https://utteranc.es/client.js";
+        script.setAttribute("repo", "somnisomni/somni.log");
+        script.setAttribute("issue-term", "pathname");
+        script.setAttribute("label", "Post Comments");
+        script.setAttribute("theme", getAppropriateTheme());
+        script.setAttribute("crossorigin", "anonymous");
+        script.async = true;
+
+        document.querySelector(".comments").appendChild(script);
+      }
+
+      function updateUtterancesTheme() {
+        const utterancesFrame = document.querySelector("iframe.utterances-frame");
+        if(!utterancesFrame) return false;
+
+        const message = {
+          type: "set-theme",
+          theme: getAppropriateTheme(),
+        };
+
+        utterancesFrame.contentWindow.postMessage(message, "https://utteranc.es");
+
+        return true;
+      }
+
+      // Create Utterances comments
+      createUtterances();
+
+      // Register callback to theme toggle button
+      document.getElementById("theme-toggle").addEventListener("click", updateUtterancesTheme);
+    })();
   </script>
 </div>
