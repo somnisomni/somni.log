@@ -1,3 +1,8 @@
+:root[data-theme="dark"] {
+  --adm-note: #2e8cff;
+  --adm-note-rgb: 46, 140, 255;
+}
+
 .admonition-content code:not(pre > code) {
   color: var(--code-fg) !important;
 }
