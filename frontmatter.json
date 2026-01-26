@@ -72,7 +72,7 @@
   "frontMatter.git.enabled": true,
   "frontMatter.content.publicFolder": "static",
   "frontMatter.framework.id": "hugo",
-  "frontMatter.preview.host": "http://localhost:1313",
+  "frontMatter.preview.host": "http://localhost:1313/posts",
   "frontMatter.content.snippets": {
     "Image Figure": {
       "description": "Insert an image as figure shortcode",
