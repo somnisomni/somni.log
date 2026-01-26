@@ -79,5 +79,6 @@
       "body": "{{< figure src=\"[[&filename]]\" attr=\"[[caption]]\" >}}",
       "isMediaSnippet": true
     }
-  }
+  },
+  "frontMatter.content.supportedFileTypes": [ "md", "mdx", "markdown" ]
 }
