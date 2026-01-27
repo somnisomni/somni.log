@@ -34,6 +34,9 @@ languages:
         - name: Homepage
           title: "Homepage (somni.one)"
           url: "https://somni.one/"
+        - name: Twitter
+          title: "Twitter (@somnisomni)"
+          url: "https://twitter.com/somni_somni"
         - name: GitHub
           title: "GitHub (@somnisomni)"
           url: "https://github.com/somnisomni"
@@ -90,6 +93,9 @@ params:
     - name: Homepage
       title: "홈페이지 (somni.one)"
       url: "https://somni.one/"
+    - name: Twitter
+      title: "트위터 (@somnisomni)"
+      url: "https://twitter.com/somni_somni"
     - name: GitHub
       title: "GitHub (@somnisomni)"
       url: "https://github.com/somnisomni"
