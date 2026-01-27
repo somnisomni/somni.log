@@ -1,11 +1,10 @@
-# baseURL: "https://log.somni.one/"
+title: "솜니.로그"
+copyright: "Copyright © [somni](https://somni.one)"
 languageCode: "ko-kr"
 timeZone: "Asia/Seoul"
-title: "솜니.로그"
 theme:
   - "hugo-admonitions"
   - "PaperMod-somni"
-copyright: "Copyright © [somni](https://somni.one)"
 
 hasCJKLanguage: true
 enableRobotsTXT: true
