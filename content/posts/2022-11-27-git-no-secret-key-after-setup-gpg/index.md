@@ -42,7 +42,7 @@ error: gpg failed to sign the data
 fatal: failed to write commit object
 ```
 
-gpg는 이미 생성되어있을 키스토어를 두고 `%UserProfile%\.gnupg` 디렉터리를 만들고, 그 안에 `pubring.kbx` 라는 키스토어를 생성합니다. 그러고선 **"No secret key"**라며 개인 키<sub>(비밀 키)</sub>가 없다고 커밋을 못하겠다네요.
+gpg는 이미 생성되어있을 키스토어를 두고 `%UserProfile%\.gnupg` 디렉터리를 만들고, 그 안에 `pubring.kbx` 라는 키스토어를 생성합니다. 그러고선 **"No secret key"** 라며 개인 키<sub>(비밀 키)</sub>가 없다고 커밋을 못하겠다네요.
 
 엥? 분명히 공개 키나 개인 키는 이미 gpg로 가져왔을텐데...?
 
