@@ -1,7 +1,7 @@
 ---
 title: Armbian Minimal에서 Wi-Fi 설정
 slug: armbian-minimal-wifi-setup
-date: 2022-12-21T22:11:00.000Z
+date: 2022-12-21T22:11:00.000+09:00
 draft: false
 tags:
   - 트러블슈팅

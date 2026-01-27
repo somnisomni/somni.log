@@ -1,7 +1,7 @@
 ---
 title: "2022년 회고: 길을 찾고, 길을 잃고, 다시 길을 찾다"
 slug: 2022-retrospection
-date: 2023-01-10T20:02:00.000Z
+date: 2023-01-10T20:02:00.000+09:00
 cover:
   image: header.png
   relative: true

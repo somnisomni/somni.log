@@ -1,7 +1,7 @@
 ---
 title: WD Red Plus 4TB WD40EFPX 언박싱 & 벤치마크 (vs WD40EFZX)
 slug: wd40efpx-unboxing-benchmark
-date: 2022-12-09T17:40:00.000Z
+date: 2022-12-09T17:40:00.000+09:00
 cover:
   image: wd40efpx-pc-connect.png
   relative: true

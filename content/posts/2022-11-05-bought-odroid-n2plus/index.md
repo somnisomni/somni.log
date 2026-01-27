@@ -1,7 +1,7 @@
 ---
 title: "오드로이드 N2+: 삽질의 서막"
 slug: bought-odroid-n2plus
-date: 2022-11-05T19:42:00.000Z
+date: 2022-11-05T19:42:00.000+09:00
 draft: false
 tags:
   - SBC

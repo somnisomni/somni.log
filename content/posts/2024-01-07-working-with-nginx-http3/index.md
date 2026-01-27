@@ -1,7 +1,7 @@
 ---
 title: NGINX + HTTP/3 삽질 기록
 slug: working-with-nginx-http3
-date: 2024-01-07T00:48:00.000Z
+date: 2024-01-07T00:48:00.000+09:00
 cover:
   image: header.png
   relative: true

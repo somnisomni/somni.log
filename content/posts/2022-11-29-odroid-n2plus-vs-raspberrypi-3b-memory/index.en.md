@@ -1,7 +1,7 @@
 ---
 title: "ODROID N2+ vs Raspberry Pi 3B: Memory Performance Benchmark"
 slug: odroid-n2plus-vs-raspberrypi-3b-memory
-date: 2022-11-29T18:00:00.000Z
+date: 2022-11-29T18:00:00.000+09:00
 cover:
   image: header.png
   relative: true

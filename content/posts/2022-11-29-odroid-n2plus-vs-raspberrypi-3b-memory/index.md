@@ -1,7 +1,7 @@
 ---
 title: "오드로이드 N2+ vs 라즈베리파이 3B: 메모리 성능 벤치마크"
 slug: odroid-n2plus-vs-raspberrypi-3b-memory
-date: 2022-11-29T18:00:00.000Z
+date: 2022-11-29T18:00:00.000+09:00
 cover:
   image: header.png
   relative: true
