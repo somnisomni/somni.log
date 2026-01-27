@@ -1,12 +1,12 @@
 ---
 title: Ghost에서 Hugo로 블로그 시스템 마이그레이션
 slug: blog-migrated-to-hugo
-date: 2026-01-27T15:58:18.084Z
-lastmod: 2026-01-27T15:58:19.544Z
+date: 2026-01-27T17:04:30.146Z
+lastmod: 2026-01-27T17:04:54.475Z
 cover:
   image: header.png
   relative: true
-draft: true
+draft: false
 tags:
   - 블로그
   - 웹 개발
@@ -36,6 +36,7 @@ tags:
 
 Ghost를 벗어나서 아쉬운건 브라우저 내에서 정돈된 WYSIWYG 에디터로 글을 쓸 수 없고 [URL 북마크](https://ghost.org/help/cards/#bookmark)와 같은 기능은 없다 정도일까요..? 그런데 에디터 문제는 VS Code를 마개조하거나 타 헤드리스 CMS를 사용하면 어느 정도 해소됩니다.
 
+---
 
 ## Hugo 개발 환경 세팅
 기본적으로 [공식 문서](https://gohugo.io/getting-started/quick-start/)의 내용을 잘 따라가면 환경 세팅은 문제 없이 마칠 수 있습니다. 되게 심플해요.
@@ -92,7 +93,7 @@ VS Code를 글 작성에 좀 더 알맞도록 약간의 커스터마이징을 �
 마찬가지로 글이 그렇게 많지 않아 손수 마이그레이션 할만했지, 그렇지 않다면 [ghost-to-md](https://github.com/hswolff/ghost-to-md)와 같은 변환 도구를 사용해야 할 것 같네요.
 
 ### Callout 모듈 도입
-{{< figure src="post-migration-callout.png" caption="별도 모듈을 통해 렌더링된 Callout." attr="원본 글" attrlink="/posts/working-with-nginx-http3/" >}}
+{{< figure src="post-migration-callout.png" caption="별도 모듈을 통해 렌더링된 Callout 예시." attr="원본 글" attrlink="/posts/working-with-nginx-http3/" >}}
 
 이왕 Markdown 문법으로 글을 쓰게 된 거, <abbr title="GitHub Flavoured Markdown, GitHub에서 확장한 Markdown 문법">GFM</abbr>의 [Alerts](https://docs.github.com/ko/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts)와 같이 일부 내용을 강조하는 영역을 넣을 수 있게 만들고 싶었습니다.
 
@@ -131,7 +132,26 @@ theme:
 
 
 ## 테마 커스터마이징
-TO BE FILLED 
+> [!NOTIFY] 
+> 이 섹션은 추후 작성 예정입니다.  
+> [PaperMod](https://github.com/adityatelange/hugo-PaperMod) 테마를 포크하여 커스터마이징하고 있으며, [somnisomni/Hugo-PaperMod-somni](https://github.com/somnisomni/Hugo-PaperMod-somni)에서 확인해보실 수 있습니다.  
+> [홈페이지](https://somni.one)의 헤더 스타일을 적용하고 기타 이것저것 커스터마이징 중입니다!
+
+
+## Utterances로 댓글 시스템 전환
+{{< figure src="utterances-test.png" caption="셀프 테스트" >}}
+
+기존 Ghost 블로그에서는 [Disqus](https://disqus.com/)를 댓글 시스템으로 사용했는데, 이번에 [Utterances](https://utteranc.es/)로 전환했습니다.
+
+이유야 간단합니다. **Disqus를 임베딩하는 스크립트가 꽤 무겁고, 별도로 계정을 만들어야 하는 불편함**입니다. 계정 생성 없이 익명으로 댓글을 달 수 있도록 하고 싶었으나 결국에는 별도 <abbr title="데이터베이스">DB</abbr>와 셀프 호스팅 서비스를 두어야 하기 때문에... 그게 그거같죠.
+
+대신 좀 더 가볍고 이미 잘 사용하고 있는 *(그리고 방문자가 개발자라면 대부분 계정은 가지고 있을)* GitHub을 이용하는 Utterances를 탑재했습니다.
+
+사실 인터넷 변두리<sub>(?)</sub>의 블로그라 방문자가 그리 많지 않아 그냥 댓글 시스템을 아예 없애버려도 괜찮지 않을까 싶었지만... 기존 블로그에도 댓글을 달아주시는 분이 계셨기에 그 선택지는 고려하진 않았습니다.
+
+{{< figure src="utterances-dynamic-theme.gif" caption="동적 테마 전환 대응" >}}
+
+[이 이슈 댓글](https://github.com/utterance/utterances/issues/549#issuecomment-907606127)을 참고해 사이트 테마가 전환될 때 Utterances의 테마도 동적으로 바뀌도록 스크립트를 작성했습니다. 스크립트는 [여기](https://github.com/somnisomni/somni.log/blob/main/layouts/partials/comments.html)서 확인해볼 수 있어요.
 
 
 ## 배포
@@ -140,3 +160,5 @@ TO BE FILLED
 블로그는 [Cloudflare Pages](https://pages.cloudflare.com/)를 이용해 자동 빌드 및 배포하고 있습니다. SSG이기 때문에 서버에 셀프 호스트를 한다고 하더라도 빌드 및 배포 파이프라인은 간단하게 끝낼 수 있을 것 같네요.
 
 요즘은 서버에 대한 관리를 외주주는 편이 너무 편하네요. 제 [홈페이지](https://somni.one)와 거기에 사용되는 외부 서비스 데이터 수집기도 Cloudflare Pages / Workers로 돌아가고 있습니다. <span style="color: gray">클라우드플레어 만세!</span>
+
+---
