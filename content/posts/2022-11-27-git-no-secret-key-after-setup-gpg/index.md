@@ -89,3 +89,7 @@ D:\...\project> git commit -a -m "Some awesome commit"
 > GNUPGHOME 환경 변수 설정 후 커밋 생성 중에 Invalid value passed to IPC 오류가 난다면, `git config --global gpg.program <gpg 실행 파일 절대 경로>` 를 시도해보세요.
 > 
 > 해당 오류는 Git 내장 gpg 에이전트와 외부 gpg 에이전트 간의 버전 차이로 인한 충돌이 발생할 때 나타나는 듯 합니다.
+>
+> <span style="color: gray">*\[2026-01-27 업데이트\]*</span> 또는, Windows와 git이 실제로 실행되는 MINGW64 환경 간 경로 구분자의 차이로 인한 문제일 수 있습니다. 이 경우, 아래 댓글 내용과 [StackOverflow 답변](https://stackoverflow.com/questions/68721294/ipc-error-on-gpg-agent-with-git-on-windows/68721408#68721408)을 참고해주세요.
+> {{< figure src="path-separator-comment-raonsol.png" >}}
+> <span style="color:gray">블로그 시스템 이전으로 Disqus 댓글을 가져올 수 없어 스크린샷 첨부로 대체합니다. 댓글로 경험을 공유해주신 **raonsol님**께 감사드립니다!</span>
