@@ -9,6 +9,8 @@ tags:
 cover:
   image: odroidn2p-purchased.png
   relative: true
+aliases:
+  - /bought-odroid-n2plus
 ---
 
 {{< figure src="odroidn2p-purchased.png" caption="오드로이드 N2+ 결제 완료 페이지 스크린샷" >}}

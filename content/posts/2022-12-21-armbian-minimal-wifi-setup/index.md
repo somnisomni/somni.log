@@ -7,6 +7,10 @@ tags:
   - 트러블슈팅
   - 리눅스
   - SBC
+aliases:
+  - /armbian-minimal-wifi-setup
+cover:
+  relative: true
 ---
 
 > [!CONCLUSION] TL;DR

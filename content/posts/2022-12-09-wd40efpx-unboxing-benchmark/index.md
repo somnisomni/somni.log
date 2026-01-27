@@ -9,6 +9,8 @@ draft: false
 tags:
   - 하드웨어
   - 벤치마크
+aliases:
+  - /wd40efpx-unboxing-benchmark
 ---
 
 > [!NOTE] 이 글은 Western Digital 또는 홍보 업체 등으로부터 어떠한 스폰서도 받지 않은 **내돈내산 리뷰**입니다. ~~저도 돈 받고 글 써보고 싶네요~~

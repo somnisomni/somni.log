@@ -9,6 +9,8 @@ draft: false
 tags:
   - SBC
   - 하드웨어
+aliases:
+  - /unboxing-odroid-n2plus
 ---
 
 **아아... 그 분이 드디어 나에게 오셨습니다...**

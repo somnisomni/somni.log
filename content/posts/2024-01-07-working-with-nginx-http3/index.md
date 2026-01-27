@@ -9,6 +9,8 @@ draft: false
 tags:
   - 웹 개발
   - 리눅스
+aliases:
+  - /working-with-nginx-http3
 ---
 
 > [!CONCLUSION] TL;DR

@@ -10,6 +10,8 @@ tags:
   - 벤치마크
   - SBC
   - 하드웨어
+aliases:
+  - /odroid-n2plus-vs-raspberrypi-3b-processor
 ---
 
 # 오드로이드 N2+ vs 라즈베리파이 3B 벤치마크 씨리-즈

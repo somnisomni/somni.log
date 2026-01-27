@@ -9,6 +9,8 @@ draft: false
 tags:
   - 트러블슈팅
   - 개발 / 프로그래밍
+aliases:
+  - /git-no-secret-key-after-setup-gpg
 ---
 
 > [!CONCLUSION] TL;DR
