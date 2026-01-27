@@ -35,7 +35,8 @@
 			"editor.codeLens": false,
 			"github.copilot.nextEditSuggestions.enabled": false
 		},
-		"frontMatter.panel.openOnSupportedFile": true
+		"frontMatter.global.timezone": "Asia/Seoul",
+		"frontMatter.content.autoUpdateDate": true
 	},
 	"extensions": {
 		"recommendations": [

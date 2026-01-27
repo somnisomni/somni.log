@@ -31,15 +31,22 @@
           "isPublishDate": true
         },
         {
+          "title": "마지막 수정 일자",
+          "name": "lastmod",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isModifiedDate": true
+        },
+        {
           "title": "헤더(미리보기) 이미지",
           "name": "cover",
           "type": "fields",
-          "required": false,
           "fields": [
             {
               "title": "이미지",
               "name": "image",
-              "type": "image"
+              "type": "image",
+              "isPreviewImage": true
             },
             {
               "title": "상대 경로 사용",
@@ -80,5 +87,10 @@
       "isMediaSnippet": true
     }
   },
-  "frontMatter.content.supportedFileTypes": [ "md", "mdx", "markdown" ]
+  "frontMatter.content.supportedFileTypes": [
+    "md",
+    "mdx",
+    "markdown"
+  ],
+  "frontMatter.content.autoUpdateDate": true
 }
