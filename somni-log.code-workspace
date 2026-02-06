@@ -18,31 +18,9 @@
 		}
 	],
 	"settings": {
-		"markdown.editor.updateLinksOnPaste.enabled": true,
-		"markdown.preview.fontFamily": "'MaruBuri', 'MaruBuriOTF', 'Maru Buri', 'Noto Serif CJK KR', 'Noto Serif CJK JP', 'Noto Serif KR', 'Noto Serif JP', 'Noto Serif', serif",
 		"gitlens.codeLens.enabled": false,
 		"gitlens.currentLine.enabled": false,
 		"frontMatter.dashboard.openOnStart": true,
-		"[markdown]": {
-			"editor.wordWrap": "on",
-			"editor.fontFamily": "'MaruBuri', 'MaruBuriOTF', 'Maru Buri', 'Noto Serif CJK KR', 'Noto Serif CJK JP', 'Noto Serif KR', 'Noto Serif JP', 'Noto Serif', serif",
-			"editor.fontSize": 18,
-			"editor.fontWeight": "normal",
-			"editor.lineHeight": 1.5,
-			"editor.lineNumbers": "interval",
-			"editor.quickSuggestions": {
-				"other": "on",
-				"comments": "off",
-				"strings": "off"
-			},
-			"editor.renderWhitespace": "all",
-			"editor.minimap.enabled": false,
-			"editor.inlayHints.enabled": "offUnlessPressed",
-			"editor.inlineSuggest.enabled": false,
-			"editor.cursorWidth": 3,
-			"editor.codeLens": false,
-			"github.copilot.nextEditSuggestions.enabled": false
-		},
 		"frontMatter.global.timezone": "Asia/Seoul",
 		"frontMatter.content.autoUpdateDate": true
 	},
