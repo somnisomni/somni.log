@@ -1,0 +1,47 @@
+{{- $site_title_text := (site.Params.label.text | default site.Title) -}}
+
+<header class="header">
+  <nav class="nav">
+    <!-- Header Title -->
+    {{- if $site_title_text -}}
+    <a href="{{ "/" | absLangURL }}"
+       accesskey="h"
+       title="To main page (Alt + H)">
+      {{- $site_title_text -}}
+    </a>
+    {{- end -}}
+  </nav>
+
+  <div class="features">
+    <!-- Theme Toggle Button -->
+    {{- if (not site.Params.disableThemeToggle) }}
+    <button id="theme-toggle"
+            accesskey="t"
+            title="Toggle theme (Alt + T)"
+            aria-label="Toggle theme">
+      <div id="theme-light">
+        {{ (resources.Get "images/icons/fa-sun-solid-full.svg").Content | safeHTML }}
+      </div>
+
+      <div id="theme-dark">
+        {{ (resources.Get "images/icons/fa-moon-solid-full.svg").Content | safeHTML }}
+      </div>
+    </button>
+
+    <script>
+      document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+
+        if(html.dataset.theme === "dark") {
+          html.dataset.theme = "light";
+          localStorage.setItem("pref-theme", "light");
+        } else {
+          // Fallback or light -> dark
+          html.dataset.theme = "dark";
+          localStorage.setItem("pref-theme", "dark");
+        }
+      });
+    </script>
+    {{- end }}
+  </div>
+</header>

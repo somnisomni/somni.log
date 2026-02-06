@@ -1,12 +1,20 @@
 {
 	"folders": [
 		{
-			"name": "[Root]",
+			"name": "[Monorepo Root]",
 			"path": "."
 		},
 		{
-			"name": "[Contents]",
-			"path": "./content"
+			"name": "[Blog]",
+			"path": "./blog"
+		},
+		{
+			"name": "[Blog Contents]",
+			"path": "./blog/content"
+		},
+		{
+			"name": "[Theme]",
+			"path": "./theme"
 		}
 	],
 	"settings": {
@@ -51,9 +59,12 @@
 		"version": "2.0.0",
 		"tasks": [
 			{
-				"label": "hugo: Serve site",
-				"type": "hugo",
-				"task": "server",
+				"label": "Serve Hugo site",
+				"type": "shell",
+				"command": "hugo server -D",
+				"options": {
+					"cwd": "${workspaceFolder}/blog"
+				},
 				"group": {
 					"kind": "build",
 					"isDefault": true

@@ -1,0 +1,59 @@
+:root {
+    --gap: 24px;
+    --content-gap: 20px;
+    --header-width: 6rem;
+    --header-font-size: 60px;    /* magic number to match with somni.one (tailwind text-6xl (3.75rem)) */
+    --header-font-weight: 800;
+
+    --main-width: 840px;
+    --footer-height: 60px;
+    --post-header-height: 400px;
+    --radius: 8px;
+
+    --base-light: #F9FBFE;
+    --base-dark: #121212;
+
+    --theme: var(--base-light);
+    --entry: rgb(255, 255, 255);
+    --primary: var(--base-dark);
+    --secondary: rgb(108, 108, 108);
+    --tertiary: rgb(214, 214, 214);
+    --accent: #2495F7;
+    --content: var(--base-dark);
+    --code-block-bg: rgb(28, 29, 33);
+    --code-bg: rgb(238, 238, 238);
+    --code-fg: #F72F25;
+    --border: rgb(238, 238, 238);
+
+    color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+    --theme: var(--base-dark);
+    --entry: rgb(46, 46, 51);
+    --primary: var(--base-light);
+    --secondary: rgb(155, 156, 157);
+    --tertiary: rgb(65, 66, 68);
+    --accent: #4AA5FA;
+    --content: var(--base-light);
+    --code-block-bg: rgb(46, 46, 51);
+    --code-bg: rgb(51, 51, 51);
+    --code-fg: #F75A55;
+    --border: rgb(51, 51, 51);
+
+    color-scheme: dark;
+}
+
+.list {
+    background: var(--code-bg);
+}
+
+[data-theme="dark"] .list {
+    background: var(--theme);
+}
+
+@media (max-width: 768px) {
+    :root {
+        --header-width: 4rem;
+    }
+}

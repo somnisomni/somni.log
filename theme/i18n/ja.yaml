@@ -1,0 +1,45 @@
+- id: prev_page
+  translation: "前へ"
+
+- id: next_page
+  translation: "次へ"
+
+- id: read_time
+  translation:
+    one : "1 分"
+    other: "{{ .Count }} 分"
+
+- id: words
+  translation:
+    one: "文字"
+    other: "{{ .Count }} 文字"
+
+- id: toc
+  translation: "目次"
+
+- id: translations
+  translation: "言語"
+
+- id: home
+  translation: "ホーム"
+
+- id: edit_post
+  translation: "編集"
+
+- id: code_copy
+  translation: "コピー"
+
+- id: code_copied
+  translation: "コピーされました!"
+
+- id: default_font_license
+  translation: "このサイトは、ウェブフォントとして[Maru Buri](https://hangeul.naver.com/)・[Pretendard](https://github.com/orioncactus/pretendard)・[D2Coding](https://github.com/naver/d2codingfont)を使用しています。"
+
+- id: list_title_posts
+  translation: "記事一覧"
+
+- id: list_title_tags
+  translation: "タグ"
+
+- id: list_title_archive
+  translation: "アーカイブ"

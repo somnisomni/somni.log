@@ -1,0 +1,134 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: end;
+  overflow: hidden;
+  z-index: 5;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--header-width);
+  height: 100%;
+  padding-top: 48px;
+
+  background-color: var(--accent);
+  font-family: var(--font-header);
+}
+
+.header * {
+  color: var(--theme);
+  fill: currentColor;
+}
+
+.header .nav {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  translate: 12px 0px;
+
+  writing-mode: sideways-lr;
+  letter-spacing: -0.139em;
+  line-height: 1;
+  text-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.header .nav a {
+  margin-bottom: 2rem;
+
+  font-size: var(--header-font-size);
+  font-weight: var(--header-font-weight);
+}
+
+.header .features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  position: absolute;
+}
+
+.header .features > * {
+  width: var(--header-width);
+  height: var(--header-width);
+}
+
+.header .features #theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  opacity: 80%;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.header .features #theme-toggle * {
+  transition-property: color;
+  transition-duration: inherit;
+}
+
+.header .features #theme-toggle:hover {
+  opacity: 100%;
+  background-color: color-mix(in oklab, var(--theme) 80%, transparent);  /* tailwind bg-theme/80 */
+}
+
+.header .features #theme-toggle:hover * {
+  color: var(--accent);
+}
+
+.header .features #theme-toggle > div {
+  display: none;
+
+  position: absolute;
+  width: 50%;
+  height: 50%;
+}
+
+[data-theme="dark"] .header .features #theme-toggle #theme-dark {
+  display: block;
+}
+
+[data-theme="light"] .header .features #theme-toggle #theme-light {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .header {
+    justify-content: end;
+
+    right: 0;
+    bottom: unset;
+    width: 100%;
+    height: var(--header-width);
+    padding-top: 0;
+
+    background-color: color-mix(in oklab, var(--accent) 80%, transparent);  /* tailwind bg-accent/80 */
+    backdrop-filter: blur(6px);
+  }
+
+  .header .nav {
+    translate: 0px 12px;
+
+    writing-mode: initial;
+  }
+
+  .header .nav a {
+    margin-bottom: 0;
+    margin-right: 2rem;
+  }
+
+  .header .features {
+    flex-direction: row;
+    justify-content: center;
+    top: 0;
+    right: unset;
+  }
+}

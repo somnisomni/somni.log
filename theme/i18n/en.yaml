@@ -1,0 +1,45 @@
+- id: prev_page
+  translation: "Prev"
+
+- id: next_page
+  translation: "Next"
+
+- id: read_time
+  translation:
+    one : "1 min"
+    other: "{{ .Count }} min"
+
+- id: words
+  translation:
+    one : "word"
+    other: "{{ .Count }} words"
+
+- id: toc
+  translation: "Table of Contents"
+
+- id: translations
+  translation: "Translations"
+
+- id: home
+  translation: "Home"
+
+- id: edit_post
+  translation: "Edit"
+
+- id: code_copy
+  translation: "copy"
+
+- id: code_copied
+  translation: "copied!"
+
+- id: default_font_license
+  translation: "This site uses [Maru Buri](https://hangeul.naver.com/), [Pretendard](https://github.com/orioncactus/pretendard), [D2Coding](https://github.com/naver/d2codingfont) as web fonts."
+
+- id: list_title_posts
+  translation: "Posts"
+
+- id: list_title_tags
+  translation: "Tags"
+
+- id: list_title_archive
+  translation: "Archive"
