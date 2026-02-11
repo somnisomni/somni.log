@@ -1,9 +1,9 @@
 {
   "markdown.editor.updateLinksOnPaste.enabled": true,
-  "markdown.preview.fontFamily": "'MaruBuri', 'MaruBuriOTF', 'Maru Buri', 'Noto Serif CJK KR', 'Noto Serif CJK JP', 'Noto Serif KR', 'Noto Serif JP', 'Noto Serif', serif",
+  "markdown.preview.fontFamily": "'Daehan', 'Noto Serif CJK KR', 'Noto Serif CJK JP', 'Noto Serif KR', 'Noto Serif JP', 'Noto Serif', serif",
   "[markdown]": {
     "editor.wordWrap": "on",
-    "editor.fontFamily": "'MaruBuri', 'MaruBuriOTF', 'Maru Buri', 'Noto Serif CJK KR', 'Noto Serif CJK JP', 'Noto Serif KR', 'Noto Serif JP', 'Noto Serif', serif",
+    "editor.fontFamily": "'Daehan', 'Noto Serif CJK KR', 'Noto Serif CJK JP', 'Noto Serif KR', 'Noto Serif JP', 'Noto Serif', serif",
     "editor.fontSize": 18,
     "editor.fontWeight": "normal",
     "editor.lineHeight": 1.5,
