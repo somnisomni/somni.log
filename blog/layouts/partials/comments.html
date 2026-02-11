@@ -1,6 +1,7 @@
 <div class="comments">
   <script>
-    // Utterances comments integration with theme support
+    // Giscus comments integration with theme support
+    // ref: https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md#parent-to-giscus-message-events
     // ref: https://github.com/utterance/utterances/issues/549#issuecomment-907606127
 
     (() => {
@@ -8,52 +9,64 @@
         let theme = document.querySelector("html").dataset.theme;
 
         if(theme === "dark") {
-          theme = "github-dark";
+          theme = "dark";
         } else if(theme === "light") {
-          theme = "github-light";
+          theme = "light";
         } else {
           if(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            theme = "github-dark";
+            theme = "dark";
           } else {
-            theme = "github-light";
+            theme = "light";
           }
         }
 
         return theme;
       }
 
-      function createUtterances() {
+      function createGiscus() {
+        const html = document.querySelector("html");
         const script = document.createElement("script");
-        script.src = "https://utteranc.es/client.js";
-        script.setAttribute("repo", "somnisomni/somni.log");
-        script.setAttribute("issue-term", "pathname");
-        script.setAttribute("label", "Post Comments");
-        script.setAttribute("theme", getAppropriateTheme());
+        script.src = "https://giscus.app/client.js";
+        script.dataset.repo = "somnisomni/somni.log";
+        script.dataset.repoId = "R_kgDOQ7Cc0w";
+        script.dataset.category = "Post Comments";
+        script.dataset.categoryId = "DIC_kwDOQ7Cc084C2N6u";
+        script.dataset.mapping = "pathname";
+        script.dataset.strict = "0";
+        script.dataset.reactionsEnabled = "0";
+        script.dataset.emitMetadata = "0";
+        script.dataset.inputPosition = "top";
+        script.dataset.theme = getAppropriateTheme();
+        script.dataset.lang = html.lang || "en";
+        script.dataset.loading = "lazy";
         script.setAttribute("crossorigin", "anonymous");
         script.async = true;
 
         document.querySelector(".comments").appendChild(script);
       }
 
-      function updateUtterancesTheme() {
-        const utterancesFrame = document.querySelector("iframe.utterances-frame");
-        if(!utterancesFrame) return false;
+      function updateGiscusTheme() {
+        const giscusFrame = document.querySelector("iframe.giscus-frame");
+        if(!giscusFrame) return false;
 
         const message = {
-          type: "set-theme",
-          theme: getAppropriateTheme(),
+          giscus: {
+            setConfig: {
+              theme: getAppropriateTheme(),
+            },
+          },
         };
 
-        utterancesFrame.contentWindow.postMessage(message, "https://utteranc.es");
+        giscusFrame.contentWindow.postMessage(message, "https://giscus.app");
 
         return true;
       }
 
-      // Create Utterances comments
-      createUtterances();
+      // Create Giscus comments
+      createGiscus();
 
       // Register callback to theme toggle button
-      document.getElementById("theme-toggle").addEventListener("click", updateUtterancesTheme);
+      document.getElementById("theme-toggle").addEventListener("click", updateGiscusTheme);
     })();
   </script>
 </div>
