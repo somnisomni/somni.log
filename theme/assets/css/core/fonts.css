@@ -5,60 +5,19 @@
 /* Header font: Mulish (https://fonts.google.com/specimen/Mulish) - SIL OFL 1.1 */
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200..1000&display=swap");
 
-/* Korean body font: Maru Buri (https://hangeul.naver.com/) - SIL OFL v1.1 */
+/* Korean body font: Yoon Daehan (https://font.co.kr/collection/sub?family_idx=10587) - Free Font: All License */
 @font-face {
-    font-family: "MaruBuri";
-    font-style: normal;
-    font-weight: 200;
+    font-family: "Daehan";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Daehan-Regular.woff") format("woff");
+    font-weight: normal;
     font-display: swap;
-    src: local("MaruBuri"), local("MaruBuriOTF"),
-         url("https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-ExtraLight.woff2") format("woff2"),
-         url("../../fonts/MaruBuri/MaruBuri-ExtraLight.woff2") format("woff2"),
-         url("../../fonts/MaruBuri/MaruBuri-ExtraLight.woff") format("woff");
 }
 
 @font-face {
-    font-family: "MaruBuri";
-    font-style: normal;
-    font-weight: 300;
-    font-display: swap;
-    src: local("MaruBuri"), local("MaruBuriOTF"),
-         url("https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Light.woff2") format("woff2"),
-         url("../../fonts/MaruBuri/MaruBuri-Light.woff2") format("woff2"),
-         url("../../fonts/MaruBuri/MaruBuri-Light.woff") format("woff");
-}
-
-@font-face {
-    font-family: "MaruBuri";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: local("MaruBuri"), local("MaruBuriOTF"),
-         url("https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff2") format("woff2"),
-         url("../../fonts/MaruBuri/MaruBuri-Regular.woff2") format("woff2"),
-         url("../../fonts/MaruBuri/MaruBuri-Regular.woff") format("woff");
-}
-
-@font-face {
-    font-family: "MaruBuri";
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src: local("MaruBuri"), local("MaruBuriOTF"),
-         url("https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-SemiBold.woff2") format("woff2"),
-         url("../../fonts/MaruBuri/MaruBuri-SemiBold.woff2") format("woff2"),
-         url("../../fonts/MaruBuri/MaruBuri-SemiBold.woff") format("woff");
-}
-
-@font-face {
-    font-family: "MaruBuri";
-    font-style: normal;
+    font-family: "Daehan";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Daehan-Bold.woff") format("woff");
     font-weight: 700;
     font-display: swap;
-    src: local("MaruBuri"), local("MaruBuriOTF"),
-         url("https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Bold.woff2") format("woff2"),
-         url("../../fonts/MaruBuri/MaruBuri-Bold.woff2") format("woff2"),
-         url("../../fonts/MaruBuri/MaruBuri-Bold.woff") format("woff");
 }
 
 /* Korean monospace font: D2Coding (https://github.com/naver/d2codingfont) - SIL OFL v1.1 */
@@ -73,7 +32,7 @@
 
 /* Define font variables */
 :root {
-  --font-content: "MaruBuri", "Noto Serif CJK KR", "Noto Serif CJK JP", "Noto Serif KR", "Noto Serif JP", "Noto Serif", serif;
+  --font-content: "Daehan", "Noto Serif CJK KR", "Noto Serif CJK JP", "Noto Serif KR", "Noto Serif JP", "Noto Serif", serif;
   --font-ui: "Pretendard JP Variable", "Pretendard Variable", sans-serif;
   --font-header: "Mulish", var(--font-ui);
   --font-monospace: "D2Coding", "Noto Sans Mono CJK KR", "Noto Sans Mono CJK JP", "Noto Sans Mono", monospace, sans-serif;

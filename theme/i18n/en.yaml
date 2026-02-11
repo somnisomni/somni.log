@@ -33,7 +33,7 @@
   translation: "copied!"
 
 - id: default_font_license
-  translation: "This site uses [Maru Buri](https://hangeul.naver.com/), [Pretendard](https://github.com/orioncactus/pretendard), [D2Coding](https://github.com/naver/d2codingfont) as web fonts."
+  translation: "This site uses [Yoon® Daehan](https://font.co.kr/collection/sub?family_idx=10587), [Pretendard](https://github.com/orioncactus/pretendard), [D2Coding](https://github.com/naver/d2codingfont) as web fonts."
 
 - id: list_title_posts
   translation: "Posts"

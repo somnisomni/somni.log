@@ -33,7 +33,7 @@
   translation: "복사 완료!"
 
 - id: default_font_license
-  translation: "이 사이트는 웹폰트로 [마루 부리](https://hangeul.naver.com/), [Pretendard](https://github.com/orioncactus/pretendard), [D2Coding](https://github.com/naver/d2codingfont)을 사용합니다."
+  translation: "이 사이트는 웹폰트로 [Yoon® 대한](https://font.co.kr/collection/sub?family_idx=10587), [Pretendard](https://github.com/orioncactus/pretendard), [D2Coding](https://github.com/naver/d2codingfont)을 사용합니다."
 
 - id: list_title_posts
   translation: "글 목록"
