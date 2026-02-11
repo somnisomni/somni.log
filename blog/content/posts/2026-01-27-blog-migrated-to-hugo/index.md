@@ -2,7 +2,7 @@
 title: Ghost에서 Hugo로 블로그 시스템 마이그레이션
 slug: blog-migrated-to-hugo
 date: 2026-01-27T17:04:30.146Z
-lastmod: 2026-01-27T17:04:54.475Z
+lastmod: 2026-02-11T15:58:40.049Z
 cover:
   image: header.png
   relative: true
@@ -73,7 +73,7 @@ Hugo에서 [공식적으로 권장하는 에디터 플러그인](https://gohugo.
 
 VS Code를 글 작성에 좀 더 알맞도록 약간의 커스터마이징을 하기 위한 워크스페이스도 세팅해 두었습니다. 워크스페이스 파일 대신 `.vscode/settings.json`으로 설정을 조작해도 동일하게 작동합니다.
 
-특히 Markdown 파일에 대해서는 에디터 폰트를 블로그의 콘텐츠 폰트로 사용하고 있는 [마루 부리](https://hangeul.naver.com/fonts/search?f=maru)로 일치시켜 에디터와 결과물의 위화감을 조금 줄여봤습니다.
+특히 Markdown 파일에 대해서는 에디터 폰트를 블로그의 콘텐츠 폰트로 사용하고 있는 <sup>~~[마루 부리](https://hangeul.naver.com/fonts/search?f=maru) →~~</sup>[대한체](https://font.co.kr/collection/sub?family_idx=10587)로 일치시켜 에디터와 결과물의 위화감을 조금 줄여봤습니다.
 
 워크스페이스 파일도 [여기](https://github.com/somnisomni/somni.log/blob/main/somni-log.code-workspace)에서 확인해보실 수 있어요!
 
@@ -138,7 +138,13 @@ theme:
 > [홈페이지](https://somni.one)의 헤더 스타일을 적용하고 기타 이것저것 커스터마이징 중입니다!
 
 
-## Utterances로 댓글 시스템 전환
+<details>
+  <summary><h2 style="display: inline-block"><s>Utterances로 댓글 시스템 전환</s></h2></summary>
+
+> [!NOTE] 
+> Utterances를 적용했다가 Giscus로 다시 전환했습니다. [#](#giscus로-댓글-시스템-전환)  
+> 기록 목적으로 이 섹션의 내용을 남겨둡니다. 
+
 {{< figure src="utterances-test.png" caption="셀프 테스트" >}}
 
 기존 Ghost 블로그에서는 [Disqus](https://disqus.com/)를 댓글 시스템으로 사용했는데, 이번에 [Utterances](https://utteranc.es/)로 전환했습니다.
@@ -152,6 +158,15 @@ theme:
 {{< figure src="utterances-dynamic-theme.gif" caption="동적 테마 전환 대응" >}}
 
 [이 이슈 댓글](https://github.com/utterance/utterances/issues/549#issuecomment-907606127)을 참고해 사이트 테마가 전환될 때 Utterances의 테마도 동적으로 바뀌도록 스크립트를 작성했습니다. 스크립트는 [여기](https://github.com/somnisomni/somni.log/blob/main/layouts/partials/comments.html)서 확인해볼 수 있어요.
+</details>
+
+
+## Giscus로 댓글 시스템 전환
+{{< figure src="giscus-dynamic-theme.gif" caption="Giscus로도 동적 테마 전환 대응" >}}
+
+[Giscus](https://giscus.app/)의 존재를 뒤늦게 알아버렸는데, GitHub 레포의 Issues 대신 Discussions을 사용한다는 점이 가장 마음에 들었고 Utterances보다 제공하는 기능이 많고 더 유연하다고 생각되어 ~~아직 아무도 댓글을 달지 않기도 해서~~ 댓글 시스템을 Giscus로 다시 적용했습니다.
+
+Giscus 또한 Utterances의 컨셉을 기반으로 하는지라 세팅 과정도 비슷합니다. 동적 테마 전환 코드도 소소한 수정만 거치면 거의 그대로 사용할 수 있었습니다. 추후에 커스텀 CSS 기능으로 블로그 테마에 더욱 어울리게 수정할 수 있을 것 같네요!
 
 
 ## 배포
