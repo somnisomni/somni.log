@@ -487,6 +487,10 @@ img.in-text {
     height: var(--post-header-height);
 }
 
+.post-header:not(:has(.entry-cover img)) {
+    padding-bottom: 0;
+}
+
 .post-header .entry-cover {
     position: absolute;
     left: 0;
