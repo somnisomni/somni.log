@@ -368,7 +368,6 @@
     display: inline-block;
 }
 
-.post-tags a,
 .share-buttons,
 .paginav {
     border-radius: var(--radius);
@@ -382,7 +381,13 @@
     color: var(--secondary);
     font-size: 14px;
     line-height: 34px;
-    background: var(--code-bg);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 9999px;
+}
+
+.post-tags a::before {
+    content: "# ";
 }
 
 .post-tags a:hover,

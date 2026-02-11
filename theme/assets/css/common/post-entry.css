@@ -76,6 +76,16 @@
     font-size: 13px;
 }
 
+.entry-footer .post-tags {
+    justify-content: end;
+    opacity: 0.75;
+    margin-top: 0.5em;
+}
+
+.entry-footer .post-tags a {
+    pointer-events: none;
+}
+
 .entry-link {
     position: absolute;
     left: 0;
