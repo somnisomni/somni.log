@@ -1,5 +1,7 @@
 somni.log - Monorepo
 ====================
+[@somnisomni](https://github.com/somnisomni)'s whole tree of personal blog site and customized theme. The blog is powered by [Hugo](https://gohugo.io/), and is live at [log.somni.one](https://log.somni.one/).  
+[@somnisomni](https://github.com/somnisomni)의 개인 블로그 사이트와 커스텀 테마를 모두 포함하는 저장소입니다. 정적 블로그 사이트 생성에 [Hugo](https://gohugo.io/)를 사용하며, [log.somni.one](https://log.somni.one/)에 자동 배포되고 있습니다.
 
 Repositories
 ------------
@@ -23,7 +25,12 @@ Tips
 
 Licenses
 --------
-- **Blog contents** are licensed under **CC BY-NC-SA 4.0**.  
+- **Blog contents** are licensed under **CC BY-NC-SA 4.0**, unless otherwise specified.  
   The license file can be located at [blog/LICENSE.contents.md](blog/LICENSE.contents.md).
+- **블로그에 작성된 모든 글 및 콘텐츠**에는 별도로 명시되지 않는 한 **CC BY-NC-SA 4.0** 라이선스가 적용됩니다.  
+  전체 라이선스 내용은 [blog/LICENSE.contents.md](blog/LICENSE.contents.md)에서 확인할 수 있습니다.
+
 - **`PaperMod-somni` theme** is licensed under **MIT License**.  
   The license file can be located at [theme/LICENSE](theme/LICENSE).
+- **`PaperMod-somni` 테마**에는 **MIT License**가 적용됩니다.  
+  전체 라이선스 내용은 [theme/LICENSE](theme/LICENSE)에서 확인할 수 있습니다.
