@@ -81,10 +81,14 @@
     justify-content: end;
     opacity: 0.75;
     margin-top: 0.5em;
+    gap: 8px;
 }
 
 .entry-footer .post-tags a {
     pointer-events: none;
+    font-size: 12px;
+    padding: 0 10px;
+    line-height: 28px;
 }
 
 .entry-link {
