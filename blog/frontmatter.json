@@ -92,5 +92,6 @@
     "mdx",
     "markdown"
   ],
-  "frontMatter.content.autoUpdateDate": true
+  "frontMatter.content.autoUpdateDate": true,
+  "frontMatter.global.timezone": "Asia/Seoul"
 }
