@@ -1,8 +1,8 @@
 name = "PaperMod-somni"
 license = "MIT"
-licenselink = "https://github.com/somnisomni/Hugo-PaperMod-somni/blob/main/LICENSE"
+licenselink = "https://github.com/somnisomni/somni.log/blob/main/theme/LICENSE"
 description = "A fast, clean, responsive Hugo theme customized for somni.log"
-homepage = "https://github.com/somnisomni/Hugo-PaperMod-somni"
+homepage = "https://github.com/somnisomni/somni.log/tree/main/theme"
 demosite = "https://log.somni.one"
 tags = [
   "responsive",
