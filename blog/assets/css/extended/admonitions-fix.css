@@ -7,6 +7,10 @@
   color: var(--code-fg) !important;
 }
 
+.admonition-header {
+  font-family: var(--font-header);
+}
+
 .admonition-header svg {
   margin-right: 0.75em !important;
 }
