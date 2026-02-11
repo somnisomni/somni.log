@@ -2,7 +2,7 @@
 title: MacBook Pro에 AppleCare+ 예외 보증 가입 경험담
 slug: macbookpro-applecareplus
 date: 2026-02-11T05:33:32.824Z
-lastmod: 2026-02-11T08:01:04.447Z
+lastmod: 2026-02-11T13:17:12.567Z
 cover:
   image: header.png
   relative: true
@@ -40,7 +40,7 @@ tags:
 
 ---
 
-~~원래는 이 위치 쯤에 방문한 Apple Store 매장 사진을 삽입할만 하지만...~~
+{{< figure src="apple-store-gangnam.jpg" caption="오늘 방문한 Apple Store 강남. 낮에 갔었는데 사진 찍을 생각을 안했어서 밤에 지나가면서 찍었다는 사실은 안비밀" >}}
 
 저는 집에서 갈 수 있는 가장 가까운 매장인 [Apple Store 강남](https://www.apple.com/kr/retail/gangnam/)으로 갔습니다. 신논현역 바로 앞에 있고 애플 로고가 크게 박혀있어 찾기 쉬워요. ~~영어 할 줄 아냐고 물어볼까봐 쫄려서~~ 지인에게 커피 사준다고 꼬셔서 같이 갔습니다.
 
