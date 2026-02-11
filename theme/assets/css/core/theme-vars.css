@@ -44,14 +44,6 @@
     color-scheme: dark;
 }
 
-.list {
-    background: var(--code-bg);
-}
-
-[data-theme="dark"] .list {
-    background: var(--theme);
-}
-
 @media (max-width: 768px) {
     :root {
         --header-width: 4rem;
