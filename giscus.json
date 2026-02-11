@@ -1,0 +1,5 @@
+{
+  "origins": [ "https://log.somni.one" ],
+  "originsRegex": [ "http://localhost:1313" ],
+  "defaultCommentOrder": "newest"
+}
