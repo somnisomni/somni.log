@@ -2,9 +2,9 @@
 title: MacBook Pro에 AppleCare+ 예외 보증 가입 경험담
 slug: macbookpro-applecareplus
 date: 2026-02-11T05:33:32.824Z
-lastmod: 2026-02-11T07:34:55.901Z
+lastmod: 2026-02-11T07:43:27.008Z
 cover:
-  image: applecareplus-registered.png
+  image: header.png
   relative: true
 draft: false
 tags:
