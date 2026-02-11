@@ -2,7 +2,7 @@
 title: MacBook Pro에 AppleCare+ 예외 보증 가입 경험담
 slug: macbookpro-applecareplus
 date: 2026-02-11T05:33:32.824Z
-lastmod: 2026-02-11T07:26:39.043Z
+lastmod: 2026-02-11T07:34:55.901Z
 cover:
   image: applecareplus-registered.png
   relative: true
@@ -75,3 +75,5 @@ tags:
 {{< figure src="applecareplus-registered.png" caption="우리 1096일 더한다" >}}
 
 AppleCare+ 가입이 완료되면 macOS 설정에서도 바로 확인해볼 수 있습니다. **Mac 제품군은 AppleCare+ 가입 시점으로부터 3년간 연장 보증이 적용**됩니다. 2029년까지 맥북을 굴릴 생각을 하니 가슴이 웅장해지네요. 돈값 하려면 배터리를 2번 정도는 갈아야할 것 같아요🤣🤣
+
+{{< figure src="no-battery-limit.png" caption="이제 배터리 충전 80% 제한에서 해방...!" >}}
