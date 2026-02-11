@@ -8,6 +8,10 @@ Repositories
 | [blog](blog/) | Contains blog site configurations and contents, powered by [Hugo](https://gohugo.io/) |
 | [theme](theme/) | Contains customized Hugo theme files for the blog site, `PaperMod-somni`, based on [PaperMod](https://github.com/adityatelange/hugo-PaperMod) |
 
+Why did you symlink theme files? You can just put them into the site tree directly
+----------------------------------------------------------------------------------
+It's just my preference.
+
 Tips
 ----
 - When cloning this repository, use `--recurse-submodules` parameter to make sure submodules are cloned too.
