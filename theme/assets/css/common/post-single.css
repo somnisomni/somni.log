@@ -488,6 +488,7 @@ img.in-text {
 }
 
 .post-header:not(:has(.entry-cover img)) {
+    padding-top: calc(var(--gap) * 4);
     padding-bottom: 0;
 }
 
