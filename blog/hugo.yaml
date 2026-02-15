@@ -88,6 +88,9 @@ params:
   label:
     text: "somni.log"
 
+  footer:
+    text: "[개인정보처리방침](/privacy/current)"
+
   socialIcons:
     - name: Homepage
       title: "홈페이지 (somni.one)"
