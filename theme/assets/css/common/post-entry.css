@@ -78,7 +78,6 @@
 }
 
 .entry-footer .post-tags {
-    justify-content: end;
     opacity: 0.75;
     margin-top: 0.5em;
     gap: 8px;
