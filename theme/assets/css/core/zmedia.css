@@ -36,6 +36,15 @@
         margin-top: var(--header-width);
     }
 
+    .paginav {
+        flex-direction: column;
+    }
+
+    .paginav .prev,
+    .paginav .next {
+        width: 100%;
+    }
+
     /* archive */
     .archive-month {
         flex-direction: column;

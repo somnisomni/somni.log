@@ -354,8 +354,8 @@
     margin-top: var(--content-gap);
 }
 
-.post-footer>* {
-    margin-bottom: 10px;
+.post-footer > * {
+    margin-bottom: 16px;
 }
 
 .post-tags {
@@ -371,7 +371,6 @@
 .share-buttons,
 .paginav {
     border-radius: var(--radius);
-    background: var(--code-bg);
     border: 1px solid var(--border);
 }
 
@@ -427,12 +426,11 @@ h6:hover .anchor {
 
 .paginav {
     display: flex;
-    line-height: 30px;
+    line-height: 24px;
 }
 
 .paginav a {
-    padding-inline-start: 14px;
-    padding-inline-end: 14px;
+    padding: 16px;
     border-radius: var(--radius);
 }
 
