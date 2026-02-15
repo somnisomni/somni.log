@@ -35,6 +35,9 @@
 - id: default_font_license
   translation: "이 사이트는 웹폰트로 [Yoon® 대한](https://font.co.kr/collection/sub?family_idx=10587), [Pretendard](https://github.com/orioncactus/pretendard), [D2Coding](https://github.com/naver/d2codingfont)을 사용합니다."
 
+- id: google_analytics_notice
+  translation: "이 사이트는 익명 트래픽 데이터를 수집하기 위해 Google Analytics를 사용합니다."
+
 - id: list_title_posts
   translation: "글 목록"
 

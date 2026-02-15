@@ -35,6 +35,9 @@
 - id: default_font_license
   translation: "このサイトは、ウェブフォントとして[Yoon® Daehan](https://font.co.kr/collection/sub?family_idx=10587)・[Pretendard](https://github.com/orioncactus/pretendard)・[D2Coding](https://github.com/naver/d2codingfont)を使用しています。"
 
+- id: google_analytics_notice
+  translation: "このサイトは、匿名のトラフィックデータを収集するためにGoogle Analyticsを使用しています。"
+
 - id: list_title_posts
   translation: "記事一覧"
 
