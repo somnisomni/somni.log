@@ -2,7 +2,7 @@
 title: MacBook Pro에 AppleCare+ 예외 보증 가입 경험담
 slug: macbookpro-applecareplus
 date: 2026-02-11T05:33:32.824Z
-lastmod: 2026-02-11T16:06:55.520Z
+lastmod: 2026-02-17T16:48:00.000+09:00
 cover:
   image: header.png
   relative: true
@@ -15,6 +15,7 @@ tags:
 
 > [!CONCLUSION] TL;DR
 > - AppleCare+ 예외 보증 가입은 글 작성 시점<sup>*(2026/02/11)*</sup> 여전히 실시 중
+> - 제품 구입(활성화) 후 60일 초과 1년 이내라면 예외 보증 가입 가능
 > - **예외 보증 가입은 교육 할인 불가**
 > - 보증은 AppleCare+ **가입 일시**부터 연장 <span style="color: gray">(남은 제한 보증 기간은 무시됨)</span>, Mac 제품군은 3년 연장
 > - 가입 비용 ₩379,000
