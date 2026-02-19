@@ -23,6 +23,12 @@
 - id: home
   translation: "홈"
 
+- id: search
+  translation: "검색"
+
+- id: search_placeholder
+  translation: "검색어 입력..."
+
 - id: edit_post
   translation: "편집"
 

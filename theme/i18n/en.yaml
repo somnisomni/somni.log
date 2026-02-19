@@ -23,6 +23,12 @@
 - id: home
   translation: "Home"
 
+- id: search
+  translation: "Search"
+
+- id: search_placeholder
+  translation: "Type to search..."
+
 - id: edit_post
   translation: "Edit"
 

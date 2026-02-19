@@ -23,6 +23,12 @@
 - id: home
   translation: "ホーム"
 
+- id: search
+  translation: "検索"
+
+- id: search_placeholder
+  translation: "検索語を入力..."
+
 - id: edit_post
   translation: "編集"
 
