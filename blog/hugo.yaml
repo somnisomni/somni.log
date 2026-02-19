@@ -75,7 +75,7 @@ outputs:
 params:
   author: "somni"
   description: "somni.log: 솜니가 삽질하고 부딪히고 깨지고 경험하고 배운 것들의 아카이브"
-  dateFormat: "2006/01/02"
+  dateFormat: "2006-01-02"
   comments: true
   showBreadCrumbs: false
   displayFullLangName: true

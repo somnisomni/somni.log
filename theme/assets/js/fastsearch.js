@@ -88,8 +88,18 @@ sInput.onkeyup = function (e) {
             let resultSet = ''; // our results bucket
 
             for (let item in results) {
-                resultSet += `<li class="post-entry"><header class="entry-header">${results[item].item.title}&nbsp;»</header>` +
-                    `<a href="${results[item].item.permalink}" aria-label="${results[item].item.title}"></a></li>`
+                const rawDate = new Date(results[item].item.date).toISOString();
+                const date = rawDate.split('T')[0];
+
+                resultSet += `
+                <li class="post-entry">
+                    <header class="entry-header">${results[item].item.title}&nbsp;»</header>
+                    <footer class="entry-footer">
+                      <span title="${rawDate}">${date}</span>
+                    </footer>
+                    <a href="${results[item].item.permalink}"
+                       aria-label="${results[item].item.title}"></a>
+                </li>`;
             }
 
             resList.innerHTML = resultSet;
