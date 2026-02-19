@@ -3,33 +3,32 @@
 {{- end -}}
 
 <!DOCTYPE html>
-{{- $theme := site.Params.defaultTheme | default "auto" }}
-{{- if eq $theme "dark" }}
-<html lang="{{ site.Language }}" dir="{{ .Language.LanguageDirection | default "auto" }}" data-theme="dark">
-{{- else if eq $theme "light" }}
-<html lang="{{ site.Language }}" dir="{{ .Language.LanguageDirection | default "auto" }}" data-theme="light">
-{{- else }}
-<html lang="{{ site.Language }}" dir="{{ .Language.LanguageDirection | default "auto" }}" data-theme="auto">
-{{- end }}
+    {{- $theme := site.Params.defaultTheme | default "auto" }}
+    {{- if or (ne $theme "dark") (ne $theme "light") }}
+    {{- $theme = "auto" }}
+    {{- end }}
 
-<head>
-    {{- partial "head.html" . }}
-</head>
+    <html lang="{{ site.Language }}"
+          dir="{{ .Language.LanguageDirection | default "auto" }}"
+          data-theme="{{ $theme }}">
 
-{{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) }}
-<body class="list" id="top">
-{{- else }}
-<body id="top">
-{{- end }}
-    {{ partialCached "header.html" . .Page -}}
+    <head>
+        {{- partial "head.html" . }}
+    </head>
 
-    {{- block "before-main" . }}{{ end }}
-    <main class="main">
-        {{- block "main" . }}{{ end }}
-    </main>
-    {{- block "after-main" . }}{{ end }}
+    {{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) }}
+    <body id="top" class="list">
+    {{- else }}
+    <body id="top">
+    {{- end }}
+        {{ partialCached "header.html" . .Page -}}
 
-    {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
-</body>
+        {{- block "before-main" . }}{{ end }}
+        <main class="main">
+            {{- block "main" . }}{{ end }}
+        </main>
+        {{- block "after-main" . }}{{ end }}
 
+        {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
+    </body>
 </html>
