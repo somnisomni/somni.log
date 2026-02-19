@@ -53,7 +53,7 @@
 {{- $reset := (resources.Get "css/core/reset.css") }}
 {{- $media := (resources.Get "css/core/zmedia.css") }}
 {{- $license_css := (resources.Get "css/core/license.css") }}
-{{- $fonts := (resources.Get "css/core/fonts.css") }}
+{{- $license_js := (resources.Get "js/license.js") }}
 {{- $common := (resources.Match "css/common/*.css") | resources.Concat "assets/css/common.css" }}
 
 {{- /* markup.highlight.noClasses should be set to `false` */}}
@@ -61,7 +61,7 @@
 {{- $chroma_mod := (resources.Get "css/includes/chroma-mod.css") }}
 
 {{- /* order is important */}}
-{{- $core := (slice $fonts $theme_vars $reset $common $chroma_styles $chroma_mod $includes_all $media) | resources.Concat "assets/css/core.css" | resources.Minify }}
+{{- $core := (slice $theme_vars $reset $common $chroma_styles $chroma_mod $includes_all $media) | resources.Concat "assets/css/core.css" | resources.Minify }}
 {{- $extended := (resources.Match "css/extended/*.css") | resources.Concat "assets/css/extended.css" | resources.Minify }}
 
 {{- /* bundle all required css */}}
@@ -75,12 +75,27 @@
 <link crossorigin="anonymous" href="{{ $stylesheet.RelPermalink }}" rel="preload stylesheet" as="style">
 {{- end }}
 
+{{- /* CSS lazy load */}}
+{{- $fonts := resources.Get "css/core/fonts.css" | resources.Minify }}
+{{- $lazyStyles := (slice $fonts) }}
+
+{{- if not site.Params.assets.disableFingerprinting }}
+{{- $lazyStyle := ((slice $license_css) | append $lazyStyles) | resources.Concat "assets/css/lazy.css" | fingerprint }}
+{{- $lazyStyleLoader := resources.Get "js/lazycss.js" | js.Build (dict "params" (dict "targetCss" $lazyStyle.RelPermalink "targetCssIntegrity" $lazyStyle.Data.Integrity)) | resources.Minify }}
+{{- $loader := (slice $license_js $lazyStyleLoader) | resources.Concat "assets/js/lazycss.js" | fingerprint }}
+<script defer crossorigin="anonymous" src="{{ $loader.RelPermalink }}" integrity="{{ $loader.Data.Integrity }}"></script>
+{{- else }}
+{{- $lazyStyle := (slice $lazyStyles) | resources.Concat "assets/css/lazy.css" }}
+{{- $lazyStyleLoader := resources.Get "js/lazycss.js" | js.Build (dict "params" (dict "targetCss" $lazyStyle.RelPermalink)) | resources.Minify }}
+{{- $loader := (slice $lazyStyleLoader) | resources.Concat "assets/js/lazycss.js" }}
+<script defer crossorigin="anonymous" src="{{ $loader.RelPermalink }}"></script>
+{{- end }}
+
 {{- /* Search */}}
 {{- if (eq .Layout `search`) -}}
 <link crossorigin="anonymous" rel="preload" as="fetch" href="../index.json">
 {{- $fastsearch := resources.Get "js/fastsearch.js" | js.Build (dict "params" (dict "fuseOpts" site.Params.fuseOpts)) | resources.Minify }}
 {{- $fusejs := resources.Get "js/fuse.basic.min.js" }}
-{{- $license_js := resources.Get "js/license.js" }}
 {{- if not site.Params.assets.disableFingerprinting }}
 {{- $search := (slice $fusejs $license_js $fastsearch ) | resources.Concat "assets/js/search.js" | fingerprint }}
 <script defer crossorigin="anonymous" src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}"></script>

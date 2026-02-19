@@ -31,11 +31,3 @@
   src: local("D2Coding"),
        url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff") format("woff");
 }
-
-/* Define font variables */
-:root {
-  --font-content: "Daehan", "Noto Serif CJK KR", "Noto Serif CJK JP", "Noto Serif KR", "Noto Serif JP", "Noto Serif", serif;
-  --font-ui: "Pretendard JP Variable", "Pretendard Variable", sans-serif;
-  --font-header: "Mulish", var(--font-ui);
-  --font-monospace: "D2Coding", "Noto Sans Mono CJK KR", "Noto Sans Mono CJK JP", "Noto Sans Mono", monospace, sans-serif;
-}
