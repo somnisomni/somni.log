@@ -1,46 +1,56 @@
 {{- if not (.Param "hideFooter") }}
 <footer class="footer">
-    {{- if not site.Params.footer.hideCopyright }}
-        {{- if site.Copyright }}
-        <span>{{ site.Copyright | markdownify }}</span>
-        {{- else }}
-        <span>&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}">{{ site.Title }}</a></span>
+    <div class="texts">
+        {{- if not site.Params.footer.hideCopyright }}
+            {{- if site.Copyright }}
+            <span>{{ site.Copyright | markdownify }}</span>
+            {{- else }}
+            <span>&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}">{{ site.Title }}</a></span>
+            {{- end }}
+            {{- print " · "}}
         {{- end }}
-        {{- print " · "}}
-    {{- end }}
 
-    {{- with site.Params.footer.text }}
-        {{ . | markdownify }}
-        {{- print " · "}}
-    {{- end }}
-
-    <span class="footer-powered-by">
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/somnisomni/somni.log/tree/main/theme" rel="noopener" target="_blank">PaperMod-somni</a>
-    </span>
-
-    <br />
-
-    {{- if site.Params.contentLicense }}
-    <span>{{ site.Params.contentLicense | markdownify }}</span>
-
-    <br />
-    {{- end }}
-
-    <span>
-        {{- if site.Params.fontLicense }}
-        {{ site.Params.fontLicense | markdownify }}
-        {{- else }}
-        {{ i18n "default_font_license" | default "This site uses [Yoon® Daehan](https://font.co.kr/collection/sub?family_idx=10587), [Pretendard](https://github.com/orioncactus/pretendard), [D2Coding](https://github.com/naver/d2codingfont) as web fonts." | markdownify }}
+        {{- with site.Params.footer.text }}
+            {{ . | markdownify }}
+            {{- print " · "}}
         {{- end }}
-    </span>
 
-    <br />
+        <span class="footer-powered-by">
+            Powered by
+            <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+            <a href="https://github.com/somnisomni/somni.log/tree/main/theme" rel="noopener" target="_blank">PaperMod-somni</a>
+        </span>
 
-    {{- if site.Params.googleAnalyticsId }}
-    <span>{{ i18n "google_analytics_notice" | default "This site uses Google Analytics to collect anonymous traffic data." }}</span>
-    {{- end }}
+        <br />
+
+        {{- if site.Params.contentLicense }}
+        <span>{{ site.Params.contentLicense | markdownify }}</span>
+
+        <br />
+        {{- end }}
+
+        <span>
+            {{- if site.Params.fontLicense }}
+            {{ site.Params.fontLicense | markdownify }}
+            {{- else }}
+            {{ i18n "default_font_license" | default "This site uses [Yoon® Daehan](https://font.co.kr/collection/sub?family_idx=10587), [Pretendard](https://github.com/orioncactus/pretendard), [D2Coding](https://github.com/naver/d2codingfont) as web fonts." | markdownify }}
+            {{- end }}
+        </span>
+
+        <br />
+
+        {{- if site.Params.googleAnalyticsId }}
+        <span>{{ i18n "google_analytics_notice" | default "This site uses Google Analytics to collect anonymous traffic data." }}</span>
+        {{- end }}
+    </div>
+
+    <div class="extras">
+        {{- if not site.Params.footer.hideRSS }}
+        <a href="{{ "/index.xml" | absLangURL }}" title="RSS / Atom" aria-label="RSS / Atom">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M96 128C96 110.3 110.3 96 128 96C357.8 96 544 282.2 544 512C544 529.7 529.7 544 512 544C494.3 544 480 529.7 480 512C480 317.6 322.4 160 128 160C110.3 160 96 145.7 96 128zM96 480C96 444.7 124.7 416 160 416C195.3 416 224 444.7 224 480C224 515.3 195.3 544 160 544C124.7 544 96 515.3 96 480zM128 224C287.1 224 416 352.9 416 512C416 529.7 401.7 544 384 544C366.3 544 352 529.7 352 512C352 388.3 251.7 288 128 288C110.3 288 96 273.7 96 256C96 238.3 110.3 224 128 224z"/></svg>
+        </a>
+        {{- end }}
+    </div>
 </footer>
 {{- end }}
 

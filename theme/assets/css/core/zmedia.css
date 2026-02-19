@@ -56,7 +56,12 @@
 
     /* footer */
     .footer {
+        flex-direction: column;
         padding: calc((var(--footer-height) - var(--gap) - 10px) / 2) var(--gap);
+    }
+
+    .footer > * {
+        text-align: center !important;
     }
 }
 
