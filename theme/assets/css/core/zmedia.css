@@ -56,7 +56,7 @@
 
     /* footer */
     .footer {
-        flex-direction: column;
+        flex-direction: column-reverse;
         padding: calc((var(--footer-height) - var(--gap) - 10px) / 2) var(--gap);
     }
 
