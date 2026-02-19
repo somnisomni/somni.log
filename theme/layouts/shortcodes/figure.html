@@ -1,3 +1,19 @@
+{{/* Supported parameters
+     - src: The source path of the image, either absolute or relative.
+     - alt: Alt text for accessibility and SEO. Only used as image alt text.
+     - title: A title for the image, displayed leftmost in the caption.
+     - caption: A caption for the image. displayed after the title. Also used as alt text if alt is not provided.
+     - attr: An attribution for the image, displayed after the caption.
+     - attrlink: A URL to link the attribution to.
+     - link: A URL to link the image to.
+     - target: The target attribute for the link, e.g., "_blank" to open in a new tab.
+     - rel: The rel attribute for the link, e.g., "noopener" for security
+     - width: Specific width for the image. By default it uses the image's intrinsic width.
+     - height: Specific height for the image. By default it uses the image's intrinsic height.
+     - align: Alignment for the image. "center" is only available value.
+     - class: Additional CSS classes to apply to the figure element.
+*/}}
+
 <figure {{ if or (.Get "class") (eq (.Get "align") "center") }}
             class="{{- if eq (.Get "align") "center" }} align-center {{ end }}
                    {{- with .Get "class" }} {{ . }} {{- end }}"
@@ -5,14 +21,17 @@
 
     {{- $u := urls.Parse (.Get "src") -}}
     {{- $src := $u.String -}}
+    {{- $srcImg := or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) -}}
     {{- if not $u.IsAbs -}}
-        {{- with or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) -}}
+        {{- with $srcImg -}}
             {{- $src = .RelPermalink -}}
         {{- end -}}
     {{- end -}}
 
     {{- if .Get "link" -}}
-        <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
+        <a href="{{ .Get "link" }}"
+           {{ with .Get "target" }} target="{{ . }}" {{ end }}
+           {{ with .Get "rel" }} rel="{{ . }}" {{ end }}>
     {{- end }}
 
     <img loading="lazy"
@@ -21,8 +40,8 @@
          {{- if or (.Get "alt") (.Get "caption") }}
             alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}"
          {{- end -}}
-         {{- with .Get "width" }} width="{{ . }}"{{ end -}}
-         {{- with .Get "height" }} height="{{ . }}"{{ end -}}
+         {{- with or (.Get "width") ($srcImg.Width) }} width="{{ . }}" {{ end -}}
+         {{- with or (.Get "height") ($srcImg.Height) }} height="{{ . }}" {{ end -}}
     /> <!-- Closing img tag -->
     {{- if .Get "link" }}</a>{{ end -}}
     {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr") -}}
