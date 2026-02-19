@@ -1,3 +1,3 @@
-module github.com/somnisomni/Hugo-PaperMod-somni
+module github.com/somnisomni/somni.log
 
 go 1.12

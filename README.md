@@ -31,6 +31,6 @@ Licenses
   전체 라이선스 내용은 [blog/LICENSE.contents.md](blog/LICENSE.contents.md)에서 확인할 수 있습니다.
 
 - **`PaperMod-somni` theme** is licensed under **MIT License**.  
-  The license file can be located at [theme/LICENSE](theme/LICENSE).
+  The license file can be located at [theme/LICENSE](theme/LICENSE.md).
 - **`PaperMod-somni` 테마**에는 **MIT License**가 적용됩니다.  
-  전체 라이선스 내용은 [theme/LICENSE](theme/LICENSE)에서 확인할 수 있습니다.
+  전체 라이선스 내용은 [theme/LICENSE](theme/LICENSE.md)에서 확인할 수 있습니다.
