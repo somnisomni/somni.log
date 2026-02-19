@@ -81,6 +81,7 @@ params:
   displayFullLangName: true
   showPostNavLinks: true
   showAllPagesInArchive: true
+  showPageNums: true
 
   # Temporary disable because there's not enough translated content yet
   disableLangToggle: true

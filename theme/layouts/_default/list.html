@@ -98,22 +98,27 @@
 {{- if gt $paginator.TotalPages 1 }}
 <footer class="page-footer">
   <nav class="pagination">
-    {{- if $paginator.HasPrev }}
-    <a class="prev" href="{{ $paginator.Prev.URL | absURL }}">
-      «&nbsp;{{ i18n "prev_page" }}&nbsp;
-      {{- if (.Param "ShowPageNums") }}
-      {{- sub $paginator.PageNumber 1 }}/{{ $paginator.TotalPages }}
-      {{- end }}
+    <a {{- if $paginator.HasPrev }}
+       class="prev"
+       href="{{ $paginator.Prev.URL | absURL }}"
+       {{- else }}
+       class="prev hidden"
+       {{- end }}>
+      «&nbsp;{{ i18n "prev_page" | default "Prev" }}&nbsp;
     </a>
+
+    {{- if (.Param "ShowPageNums") }}
+    <span class="num"><strong>{{ $paginator.PageNumber }}</strong> <small>/ {{ $paginator.TotalPages }}</small></span>
     {{- end }}
-    {{- if $paginator.HasNext }}
-    <a class="next" href="{{ $paginator.Next.URL | absURL }}">
-      {{- i18n "next_page" }}&nbsp;
-      {{- if (.Param "ShowPageNums") }}
-      {{- add 1 $paginator.PageNumber }}/{{ $paginator.TotalPages }}
-      {{- end }}&nbsp;»
+
+    <a {{- if $paginator.HasNext }}
+       class="next"
+       href="{{ $paginator.Next.URL | absURL }}"
+       {{- else }}
+       class="next hidden"
+       {{- end }}>
+      {{- i18n "next_page" | default "Next" }}&nbsp;&nbsp;»
     </a>
-    {{- end }}
   </nav>
 </footer>
 {{- end }}

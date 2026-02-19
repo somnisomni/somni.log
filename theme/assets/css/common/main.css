@@ -29,10 +29,16 @@
     padding: 0 16px;
 }
 
-.pagination .next {
-    margin-inline-start: auto;
+.pagination a.hidden {
+    pointer-events: none;
+    visibility: hidden;
 }
 
+.pagination .num {
+    flex-grow: 1;
+    text-align: center;
+    color: var(--secondary);
+}
 
 .social-icons a {
     display: inline-flex;
