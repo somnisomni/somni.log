@@ -3,6 +3,7 @@ title: "개인정보처리방침 (현행)"
 date: 2026-02-15T00:00:00.000Z
 comments: false
 hideMeta: true
+searchHidden: true
 ---
 
 <style>
