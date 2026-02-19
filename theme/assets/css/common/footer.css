@@ -10,7 +10,8 @@
     align-items: center;
     gap: var(--gap);
 
-    width: 100%;
+    max-width: calc(var(--main-width) + var(--gap) * 2);
+    margin: 0 auto;
     padding: calc((var(--footer-height) - var(--gap)) / 2) var(--gap);
     padding-left: calc(var(--header-width) + var(--gap));
     text-align: center;
