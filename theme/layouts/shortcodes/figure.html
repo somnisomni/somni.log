@@ -12,21 +12,35 @@
      - height: Specific height for the image. By default it uses the image's intrinsic height.
      - align: Alignment for the image. "center" is only available value.
      - class: Additional CSS classes to apply to the figure element.
+     - original: Don't process the image and use the original source as is if any value is provided (for the convenience, "true" would be enough).
+                 The image will still be 'processed' anyway without any transformations, to protect original images to be exposed.
 */}}
 
-<figure {{ if or (.Get "class") (eq (.Get "align") "center") }}
-            class="{{- if eq (.Get "align") "center" }} align-center {{ end }}
-                   {{- with .Get "class" }} {{ . }} {{- end }}"
-        {{- end -}}>
-
-    {{- $u := urls.Parse (.Get "src") -}}
-    {{- $src := $u.String -}}
-    {{- $srcImg := or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) -}}
-    {{- if not $u.IsAbs -}}
-        {{- with $srcImg -}}
-            {{- $src = .RelPermalink -}}
-        {{- end -}}
+{{- $u := urls.Parse (.Get "src") -}}
+{{- $useOriginal := or (.Get "original") (eq site.Params.noImageProcessing true) -}}
+{{- $src := $u.String -}}
+{{- $src2x := "" -}}
+{{- $srcImg := or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) -}}
+{{- $srcImg2x := "" -}}
+{{- if not $useOriginal -}}
+    {{- if gt $srcImg.Width 900 -}}
+        {{- $srcImg2x = $srcImg.Process "fit 1800x8192 lanczos webp q85" -}}
     {{- end -}}
+    {{- $srcImg = $srcImg.Process "fit 900x4096 lanczos webp q85" -}}
+{{- else -}}
+    {{- $srcImg = $srcImg.Process "" -}}
+{{- end -}}
+{{- if not $u.IsAbs -}}
+    {{- $src = $srcImg.RelPermalink -}}
+    {{- if $srcImg2x -}}
+        {{- $src2x = $srcImg2x.RelPermalink -}}
+    {{- end -}}
+{{- end -}}
+
+<figure {{ if or (.Get "class") (eq (.Get "align") "center") }}
+            class="{{- if eq (.Get "align") "center" }} align-center {{- end }}
+                   {{- with .Get "class" }} {{ . }} {{- end }}"
+        {{ end }}>
 
     {{- if .Get "link" -}}
         <a href="{{ .Get "link" }}"
@@ -37,6 +51,7 @@
     <img loading="lazy"
          decoding="async"
          src="{{ $src }}{{- if eq (.Get "align") "center" }}#center{{- end }}"
+         {{- if and (not $useOriginal) $src2x }} srcset="{{ $src }} 1x, {{ $src2x }} 2x" {{- end -}}
          {{- if or (.Get "alt") (.Get "caption") }}
             alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}"
          {{- end -}}
