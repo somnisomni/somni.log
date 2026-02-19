@@ -52,3 +52,6 @@
 
 - id: list_title_archive
   translation: "아카이브"
+
+- id: go_to_top
+  translation: "맨 위로 이동"

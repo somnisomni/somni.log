@@ -52,3 +52,6 @@
 
 - id: list_title_archive
   translation: "アーカイブ"
+
+- id: go_to_top
+  translation: "トップへ移動"

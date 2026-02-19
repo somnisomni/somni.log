@@ -59,7 +59,7 @@
 .top-link {
     visibility: hidden;
     position: fixed;
-    bottom: 60px;
+    bottom: 100px;
     right: 30px;
     z-index: 99;
     background: rgb(from var(--tertiary) r g b / 33%);
