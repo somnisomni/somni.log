@@ -28,7 +28,7 @@ languages:
       homeInfoParams:
         title: "somni.log"
         content: "somni.log: A humble place where my experiences, mistakes, and learnings are archived."
-      contentLicense: "All writings on this blog are licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed), unless otherwise specified within the content."
+      contentLicense: "All writings and its contents on this blog are licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed), unless otherwise specified within the content."
       socialIcons:
         - name: Homepage
           title: "Homepage (somni.one)"
@@ -85,7 +85,7 @@ params:
   # Temporary disable because there's no translated content yet
   disableLangToggle: true
 
-  contentLicense: "이 블로그의 모든 글은 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed)에 따라 이용할 수 있습니다. (글 내 라이선스가 명시된 일부 콘텐츠 제외)"
+  contentLicense: "이 블로그의 모든 글 및 글에 포함된 콘텐츠는 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed)에 따라 이용할 수 있습니다. (글 내 출처 또는 라이선스가 명시된 일부 콘텐츠 제외)"
 
   homeInfoParams:
     title: "솜니.로그"
