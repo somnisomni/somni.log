@@ -5,7 +5,7 @@
     {{- $loading := cond $.IsSingle "eager" "lazy" }}
     {{- $addLink := (and site.Params.cover.linkFullImages $.IsSingle) }}
     {{- $prod := (hugo.IsProduction | or (eq site.Params.env "production")) }}
-    {{- $alt := (.Params.cover.alt | default .Params.cover.caption | plainify) }}
+    {{- $alt := (((.Params.cover.alt | default .Params.cover.caption) | default (printf "%s - Header Image" .Title)) | plainify) }}
     {{- $responsiveImages := (.Params.cover.responsiveImages | default site.Params.cover.responsiveImages) | default true }}
 
     {{- $pageBundleCover := (.Resources.ByType "image").GetMatch (printf "*%s*" (.Params.cover.image)) }}
@@ -32,17 +32,18 @@
     {{- if $cover -}}
         {{/* i.e it is present in page bundle */}}
         {{- if (and (in $processableFormats $cover.MediaType.SubType) ($responsiveImages) (eq $prod true)) }}
-            <img loading="{{$loading}}"
-                srcset='{{- range $size := $sizes -}}
+            <img loading="{{ $loading }}"
+                 srcset='{{- range $size := $sizes -}}
                             {{- if (ge $cover.Width $size) }}
                                 {{- printf "%s %s" (($cover.Resize (printf "%sx" $size)).RelPermalink) (printf "%sw," $size) }}
                             {{- end }}
                         {{- end }}
                         {{- printf "%s %dw" ($cover.RelPermalink) ($cover.Width) }}'
-                src="{{ $cover.Permalink }}"
-                sizes="(min-width: 768px) 720px, 100vw"
-                width="{{ $cover.Width }}" height="{{ $cover.Height }}"
-                alt="{{ $alt }}">
+                 src="{{ $cover.Permalink }}"
+                 sizes="(min-width: 768px) 720px, 100vw"
+                 width="{{ $cover.Width }}"
+                 height="{{ $cover.Height }}"
+                 alt="{{ $alt }}">
         {{- else }}{{/* Unprocessable image or responsive images disabled */}}
             <img loading="{{ $loading }}" src="{{ $imgdl }}" alt="{{ $alt }}">
         {{- end }}
