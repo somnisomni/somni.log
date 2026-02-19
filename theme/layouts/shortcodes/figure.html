@@ -14,6 +14,7 @@
      - class: Additional CSS classes to apply to the figure element.
      - original: Don't process the image and use the original source as is if any value is provided (for the convenience, "true" would be enough).
                  The image will still be 'processed' anyway without any transformations, to protect original images to be exposed.
+                 GIFs are not processed regardless of this parameter, to preserve their animation.
 */}}
 
 {{- $u := urls.Parse (.Get "src") -}}
@@ -22,6 +23,9 @@
 {{- $src2x := "" -}}
 {{- $srcImg := or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) -}}
 {{- $srcImg2x := "" -}}
+{{- if eq $srcImg.MediaType.SubType "gif" -}}
+    {{- $useOriginal = true -}}
+{{- end -}}
 {{- if not $useOriginal -}}
     {{- if gt $srcImg.Width 900 -}}
         {{- $srcImg2x = $srcImg.Process "fit 1800x8192 lanczos webp q85" -}}
