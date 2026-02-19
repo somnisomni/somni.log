@@ -3,7 +3,7 @@
     <a href="{{ trim .url ' ' | safeURL }}"
        target="_blank"
        rel="noopener noreferrer me"
-       title="{{ (.title | default .name) | title }}">
+       title="{{ .title | default .name }}">
         {{ partial "svg.html" . }}
     </a>
     {{- end }}
