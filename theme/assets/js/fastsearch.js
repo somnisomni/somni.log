@@ -3,7 +3,7 @@ import * as params from '@params';
 let fuse; // holds our search engine
 let resList = document.getElementById('searchResults');
 let sInput = document.getElementById('searchInput');
-let first, last, current_elem = null
+let first, last, current_elem = null;
 let resultsAvailable = false;
 
 // load our search index
@@ -17,13 +17,12 @@ window.onload = function () {
                     // fuse.js options; check fuse.js website for details
                     let options = {
                         distance: 100,
-                        threshold: 0.4,
+                        threshold: 0.2,
                         ignoreLocation: true,
                         keys: [
                             'title',
                             'permalink',
-                            'summary',
-                            'content'
+                            'tags'
                         ]
                     };
                     if (params.fuseOpts) {
@@ -31,12 +30,12 @@ window.onload = function () {
                             isCaseSensitive: params.fuseOpts.iscasesensitive ?? false,
                             includeScore: params.fuseOpts.includescore ?? false,
                             includeMatches: params.fuseOpts.includematches ?? false,
-                            minMatchCharLength: params.fuseOpts.minmatchcharlength ?? 1,
+                            minMatchCharLength: params.fuseOpts.minmatchcharlength ?? 2,
                             shouldSort: params.fuseOpts.shouldsort ?? true,
                             findAllMatches: params.fuseOpts.findallmatches ?? false,
-                            keys: params.fuseOpts.keys ?? ['title', 'permalink', 'summary', 'content'],
+                            keys: params.fuseOpts.keys ?? ['title', 'permalink', 'tags'],
                             location: params.fuseOpts.location ?? 0,
-                            threshold: params.fuseOpts.threshold ?? 0.4,
+                            threshold: params.fuseOpts.threshold ?? 0.2,
                             distance: params.fuseOpts.distance ?? 100,
                             ignoreLocation: params.fuseOpts.ignorelocation ?? true
                         }
@@ -73,13 +72,13 @@ function reset() {
 }
 
 // execute search as each character is typed
-sInput.onkeyup = function (e) {
+sInput.addEventListener("keyup", function () {
     // run a search query (for "term") every time a letter is typed
     // in the search box
     if (fuse) {
         let results;
         if (params.fuseOpts) {
-            results = fuse.search(this.value.trim(), {limit: params.fuseOpts.limit}); // the actual query being run using fuse.js along with options
+            results = fuse.search(this.value.trim(), { limit: params.fuseOpts.limit }); // the actual query being run using fuse.js along with options
         } else {
             results = fuse.search(this.value.trim()); // the actual query being run using fuse.js
         }
@@ -111,11 +110,21 @@ sInput.onkeyup = function (e) {
             resList.innerHTML = '';
         }
     }
-}
+})
 
-sInput.addEventListener('search', function (e) {
+sInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter" && resultsAvailable) {
+        const firstResultLink = resList.firstElementChild.querySelector("a");
+
+        if (firstResultLink) {
+            firstResultLink.click();
+        }
+    }
+})
+
+sInput.addEventListener("search", function () {
     // clicked on x
-    if (!this.value) reset()
+    if (!this.value) reset();
 })
 
 // kb bindings
