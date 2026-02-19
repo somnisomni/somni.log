@@ -13,7 +13,7 @@
   {{- end -}}
 {{- end -}}
 {{- $attributes := merge .Attributes (dict "alt" .Text "src" $src "title" (.Title | transform.HTMLEscape) "loading" "lazy") -}}
-<img
+<img decoding="async"
   {{- range $k, $v := $attributes -}}
     {{- if $v -}}
       {{- printf " %s=%q" $k $v | safeHTMLAttr -}}

@@ -16,6 +16,7 @@
     {{- end }}
 
     <img loading="lazy"
+         decoding="async"
          src="{{ $src }}{{- if eq (.Get "align") "center" }}#center{{- end }}"
          {{- if or (.Get "alt") (.Get "caption") }}
             alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}"
