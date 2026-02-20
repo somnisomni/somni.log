@@ -1,18 +1,37 @@
-{{ if .IsHome }}
+{{ if .IsHome }}  {{/* Home (Main Page) */}}
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- $pages = where $pages "Params.hiddenInHomeList" "!=" true }}
+{{- $paginator := .Paginate $pages }}
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "{{- ( site.Params.schema.siteType | default "WebSite") | title -}}",
   "name": {{ site.Title }},
-  "url": {{ site.Home.Permalink }},
+  "url": {{ site.Home.Permalink | safeHTML }},
   "description": {{ site.Params.description | plainify | truncate 180 | safeHTML }},
-  {{- if site.Params.assets.favicon }}
   "image": {{ site.Params.assets.favicon | default "favicon.ico" | absURL }},
+  {{- if ge (len $pages) 1 }}
+  "blogPost": [
+    {{- range $index, $page := $paginator.Pages }}
+    {{ if $index }}, {{ end }}
+    {
+      "@type": "BlogPosting",
+      "headline": {{ $page.Title | plainify }},
+      "name": "{{ $page.Title | plainify }}",
+      "description": {{ with $page.Description | plainify | truncate 100 }}{{ . }}{{ else }}{{ $page.Summary | plainify | truncate 100 }}{{ end -}},
+      "datePublished": {{ .PublishDate }},
+      "dateModified": {{ .Lastmod }},
+      "wordCount": "{{ $page.WordCount }}",
+      "url": {{ $page.Permalink | safeHTML }}
+    }
+    {{- end }}
+  ],
   {{- end }}
   "owner": {
     "@type": "{{- ( site.Params.schema.siteOwner.type | default "Person") | title -}}",
     "name": {{ site.Params.schema.siteOwner.name | default site.Params.author | default site.Title }},
-    "url": {{ site.Params.schema.siteOwner.url | default site.Home.Permalink }},
+    "url": {{ site.Params.schema.siteOwner.url | default site.Home.Permalink | safeHTML }},
     "sameAs": [
       {{- if site.Params.schema.siteOwner.sameAs }}
         {{ range $i, $e := site.Params.schema.siteOwner.sameAs }}{{ if $i }}, {{ end }}{{ trim $e " " }}{{ end }}
@@ -23,8 +42,7 @@
   }
 }
 </script>
-{{- else if (or .IsPage .IsSection) }}
-{{/* BreadcrumbList */}}
+{{- else if (or .IsPage .IsSection) }}  {{/* BreadcrumbList */}}
 {{- $url := replace .Parent.Permalink ( printf "%s" site.Home.Permalink) "" }}
 {{- $lang_url := strings.TrimPrefix ( printf "%s/" .Lang) $url }}
 {{- $bc_list := (split $lang_url "/")}}
@@ -62,14 +80,15 @@
   ]
 }
 </script>
-{{- if .IsPage }}
+{{- if .IsPage }}  {{/* Single Page/Post/Article */}}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": {{ .Title | plainify}},
+  "headline": {{ .Title | plainify }},
   "name": "{{ .Title | plainify }}",
-  "description": {{ with .Description | plainify }}{{ . }}{{ else }}{{ .Summary | plainify  }}{{ end -}},
+  "description": {{ with .Description | plainify }}{{ . }}{{ else }}{{ .Summary | plainify }}{{ end -}},
+  "url": {{ .Permalink | safeHTML }},
   "keywords": [
     {{- if .Params.keywords }}
     {{ range $i, $e := .Params.keywords }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}
@@ -90,7 +109,7 @@
   {{- else }}
     {{- $images := partial "templates/_funcs/get-page-images" . -}}
     {{- with index $images 0 -}}
-  "image": {{ .Permalink }},
+  "image": {{ .Permalink | safeHTML }},
     {{- end }}
   {{- end -}}
   "datePublished": {{ .PublishDate }},
@@ -98,31 +117,29 @@
   {{- with (.Params.author | default site.Params.author) }}
   "author":
     {{- if (or (eq (printf "%T" .) "[]string") (eq (printf "%T" .) "[]interface {}")) -}}
-  [{{- range $i, $v := . -}}
-  {{- if $i }}, {{end -}}
-  {
-    "@type": "Person",
-    "name": {{ $v }}
-  }
-  {{- end }}],
-    {{- else -}}
-  {
-    "@type": "Person",
-    "name": {{ . }}
-  },
-    {{- end -}}
-  {{- end }}
+    [{{- range $i, $v := . -}}
+    {{- if $i }}, {{end -}}
+    {
+      "@type": "Person",
+      "name": {{ $v }}
+    }
+    {{- end }}],
+      {{- else -}}
+    {
+      "@type": "Person",
+      "name": {{ . }}
+    },
+      {{- end -}}
+    {{- end }}
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": {{ .Permalink | safeHTML }}
   },
   "publisher": {
-    "@type": "{{- ( site.Params.schema.publisherType | default "Organization") | title -}}",
+    "@type": "{{- ( site.Params.schema.siteType | default "WebSite") | title -}}",
     "name": {{ site.Title }},
-    "logo": {
-      "@type": "ImageObject",
-      "url": {{ site.Params.assets.favicon | default "favicon.ico" | absURL }}
-    }
+    "url": {{ site.Home.Permalink | safeHTML }},
+    "image": {{ site.Params.assets.favicon | default "favicon.ico" | absURL }}
   }
 }
 </script>
