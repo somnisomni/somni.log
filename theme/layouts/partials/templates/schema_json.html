@@ -2,22 +2,25 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "{{- ( site.Params.schema.publisherType | default "Organization") | title -}}",
+  "@type": "{{- ( site.Params.schema.siteType | default "WebSite") | title -}}",
   "name": {{ site.Title }},
   "url": {{ site.Home.Permalink }},
   "description": {{ site.Params.description | plainify | truncate 180 | safeHTML }},
-  {{- if (eq site.Params.schema.publisherType "Person") }}
+  {{- if site.Params.assets.favicon }}
   "image": {{ site.Params.assets.favicon | default "favicon.ico" | absURL }},
-  {{- else }}
-  "logo": {{ site.Params.assets.favicon | default "favicon.ico" | absURL }},
   {{- end }}
-  "sameAs": [
-    {{- if site.Params.schema.sameAs }}
-      {{ range $i, $e := site.Params.schema.sameAs }}{{ if $i }}, {{ end }}{{ trim $e " " }}{{ end }}
-    {{- else}}
-      {{ range $i, $e := site.Params.SocialIcons }}{{ if $i }}, {{ end }}{{ trim $e.url " " | safeURL }}{{ end }}
-    {{- end}}
-  ]
+  "owner": {
+    "@type": "{{- ( site.Params.schema.siteOwner.type | default "Person") | title -}}",
+    "name": {{ site.Params.schema.siteOwner.name | default site.Params.author | default site.Title }},
+    "url": {{ site.Params.schema.siteOwner.url | default site.Home.Permalink }},
+    "sameAs": [
+      {{- if site.Params.schema.siteOwner.sameAs }}
+        {{ range $i, $e := site.Params.schema.siteOwner.sameAs }}{{ if $i }}, {{ end }}{{ trim $e " " }}{{ end }}
+      {{- else}}
+        {{ range $i, $e := site.Params.SocialIcons }}{{ if $i }}, {{ end }}{{ trim $e.url " " | safeURL }}{{ end }}
+      {{- end}}
+    ]
+  }
 }
 </script>
 {{- else if (or .IsPage .IsSection) }}

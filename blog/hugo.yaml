@@ -108,3 +108,9 @@ params:
     - name: GitHub
       title: "GitHub (@somnisomni)"
       url: "https://github.com/somnisomni"
+
+  schema:
+    siteType: "Blog"
+    siteOwner:
+      name: "somni"
+      url: "https://somni.one/"
