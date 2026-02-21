@@ -10,16 +10,14 @@
     font-family: "Daehan";
     font-weight: normal;
     font-display: swap;
-    src: local("Daehan"),
-         url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Daehan-Regular.woff") format("woff");
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Daehan-Regular.woff") format("woff");
 }
 
 @font-face {
     font-family: "Daehan";
     font-weight: 700;
     font-display: swap;
-    src: local("Daehan"),
-         url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Daehan-Bold.woff") format("woff");
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Daehan-Bold.woff") format("woff");
 }
 
 /* Korean monospace font: D2Coding (https://github.com/naver/d2codingfont) - SIL OFL v1.1 */
@@ -28,6 +26,5 @@
   font-style: normal;
   font-weight: normal;
   font-display: swap;
-  src: local("D2Coding"),
-       url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff") format("woff");
 }
