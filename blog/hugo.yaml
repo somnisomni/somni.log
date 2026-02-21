@@ -110,7 +110,7 @@ params:
       url: "https://github.com/somnisomni"
 
   schema:
-    siteType: "Blog"
+    isBlog: true
     siteOwner:
       name: "somni"
       url: "https://somni.one/"

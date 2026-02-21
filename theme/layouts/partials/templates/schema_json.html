@@ -33,7 +33,7 @@
     }
 
     {{/* Additional - "Blog" on main page */}}
-    {{- if .IsHome }}
+    {{- if and .IsHome site.Params.schema.isBlog }}
     {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
     {{- $pages = where $pages "Params.hiddenInHomeList" "!=" true }}
     {{- $paginator := .Paginate $pages }}
