@@ -9,7 +9,7 @@
     {
       "@type": "WebSite",
       "@id": {{ $webSiteId }},
-      "name": {{ site.Title }},
+      "name": {{ site.Params.schema.siteName | default site.Title }},
       "description": {{ site.Params.description | plainify | truncate 180 | safeHTML }},
       "image": {{ site.Params.assets.favicon | default "favicon.ico" | absURL }},
       "url": {{ site.Home.Permalink | safeHTML }},
@@ -40,7 +40,7 @@
 
     , {
       "@type": "Blog",
-      "name": {{ site.Title }},
+      "name": {{ site.Params.schema.siteName | default site.Title }},
       "description": {{ site.Params.description | plainify | truncate 180 | safeHTML }},
       "url": {{ site.Home.Permalink | safeHTML }},
       "isPartOf": { "@id": {{ $webSiteId }} }
