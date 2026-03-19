@@ -5,6 +5,7 @@
      - caption: A caption for the image. displayed after the title. Also used as alt text if alt is not provided.
      - attr: An attribution for the image, displayed after the caption.
      - attrlink: A URL to link the attribution to.
+     - attrlinkrel: Optional rel attribute for the attribution link. "noopener" is awlays added for security.
      - link: A URL to link the image to.
      - target: The target attribute for the link, e.g., "_blank" to open in a new tab.
      - rel: The rel attribute for the link, e.g., "noopener" for security
@@ -74,7 +75,7 @@
                 {{- if or (.Get "caption") (.Get "attr") }}&nbsp;{{ end -}}
 
                 {{- with .Get "attrlink" }}
-                    <a href="{{ . }}">
+                    <a href="{{ . }}" rel="noopener {{ with $.Get "attrlinkrel" }}{{ . }}{{ end }}">
                 {{- end -}}
                 {{- .Get "attr" | markdownify -}}
                 {{- if .Get "attrlink" }}</a>{{ end }}</p>
