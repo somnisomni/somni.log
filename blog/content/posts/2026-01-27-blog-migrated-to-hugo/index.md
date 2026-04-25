@@ -2,7 +2,7 @@
 title: Ghost에서 Hugo로 블로그 시스템 마이그레이션
 slug: blog-migrated-to-hugo
 date: 2026-01-27T17:04:30.146Z
-lastmod: 2026-04-25T07:04:52.300Z
+lastmod: 2026-04-25T07:11:13.013Z
 cover:
   image: header.png
   relative: true
@@ -42,14 +42,10 @@ Ghost를 벗어나서 아쉬운건 브라우저 내에서 정돈된 WYSIWYG 에�
 기본적으로 [공식 문서](https://gohugo.io/getting-started/quick-start/)의 내용을 잘 따라가면 환경 세팅은 문제 없이 마칠 수 있습니다. 되게 심플해요.
 
 ### Hugo CLI 설치
-저는 [Arch Linux](https://archlinux.org/) 기반의 [EndeavourOS](https://endeavouros.com/)를 사용하고 있기에 다음 커맨드로 Hugo CLI를 설치할 수 있었습니다. `extra` 저장소에 있으므로 AUR를 참조할 필요는 없습니다.
+저는 [Arch Linux](https://archlinux.org/) 기반 OS를 사용하고 있기에 다음 커맨드로 Hugo CLI를 설치할 수 있었습니다. `extra` 저장소에 있으므로 AUR를 참조할 필요는 없습니다.
 
 ```sh{linenos=false}
-# yay 헬퍼 사용
-$ yay hugo
-
-# 또는 pacman으로 바로 설치
-$ sudo pacman -Syu hugo
+$ sudo pacman -S hugo
 ```
 
 ### Visual Studio Code 세팅
