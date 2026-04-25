@@ -2,7 +2,7 @@
 title: Ghost에서 Hugo로 블로그 시스템 마이그레이션
 slug: blog-migrated-to-hugo
 date: 2026-01-27T17:04:30.146Z
-lastmod: 2026-03-19T09:03:35.198Z
+lastmod: 2026-04-25T07:04:52.300Z
 cover:
   image: header.png
   relative: true
@@ -132,10 +132,16 @@ theme:
 
 
 ## 테마 커스터마이징
-> [!NOTIFY] 
-> 이 섹션은 추후 작성 예정입니다.  
-> [PaperMod](https://github.com/adityatelange/hugo-PaperMod) 테마를 포크하여 커스터마이징하고 있으며, [somnisomni/Hugo-PaperMod-somni](https://github.com/somnisomni/Hugo-PaperMod-somni)에서 확인해보실 수 있습니다.  
-> [홈페이지](https://somni.one)의 헤더 스타일을 적용하고 기타 이것저것 커스터마이징 중입니다!
+{{< figure src="theme-customizing-header.png" caption="수제 커스터마이징한 테마의 모습" >}}
+
+블로그 테마는 [PaperMod](https://github.com/adityatelange/hugo-PaperMod) 테마를 기반으로 커스터마이징하고 있습니다. 물론 처음부터 공식 문서와 씨름하며 손수 만들어볼 수도 있겠으나 이미 잘 만들어진 코드를 읽고 해석하며 입맛대로 주물러볼 줄 아는 것도 개발자의 덕목 아닐까요?!
+
+이번에 커스터마이징하는 과정에서는 이전 Ghost 기반 블로그의 비주얼은 과감히 포기하고, **[개인 홈페이지](https://somni.one)의 디자인/레이아웃과 유사**하게 가져가는 방향으로 결정했습니다. 조금 심심하게 느껴질 수 있더라도 'somni라는 닉네임을 쓰는 어떤 인간의 사이트'라는 통일된 아이덴티티를 확고히 하는 것으로다가..!
+
+Go 언어와 Go templating 또한 테마를 커스터마이징하며 처음으로 맛보게 되었습니다. 테마 제작 수준에서는 Go 언어를 그리 깊게 이해할 필요는 없는 것 같고, [Hugo 공식 문서](https://gohugo.io/documentation/)만 잘 참고하는 것으로도 충분했어요.
+
+커스텀한 블로그 테마의 전체 소스 코드는 [블로그 리포지토리 내 *themes* 디렉토리](https://github.com/somnisomni/somni.log/tree/main/theme)에서 확인해보실 수 있으며, ~~제 개인에 한정된 커스텀이 많이 들어가긴 했어도~~ 기반 테마와 동일한 MIT 라이선스에 따라 활용하실 수 있습니다.   
+
 
 
 <details>
