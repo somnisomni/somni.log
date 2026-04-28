@@ -11,6 +11,7 @@ tags:
   - 개발 환경
 aliases:
   - /git-no-secret-key-after-setup-gpg
+lastmod: 2026-04-28T17:18:05.618Z
 ---
 
 > [!CONCLUSION] TL;DR
@@ -31,9 +32,7 @@ aliases:
 
 Git으로 커밋할 때 커밋 작성자가 본인인 것을 확인하기 위해 ~~사실은 커밋이 Verified로 보이는게 까리해서~~ [커밋 서명](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)을 설정한 후 테스트하는 도중에, 뜻밖의 오류<sup>또는 버그</sup>를 발견했습니다.
 
-```none caption="Git 커밋 작성 시 서명 오류 (개인 키(비밀 키) 없음)"
-D:\...\project> git commit -a -m "Some awesome commit"
-
+```text {linenos=false command="git commit -a -m \"Some awesome commit\""}
 gpg: directory '/c/Users/somni/.gnupg' created
 gpg: keybox '/c/Users/somni/.gnupg/pubring.kbx' created
 gpg: skipped "782CAE24A5B51DE9": No secret key
@@ -76,9 +75,7 @@ gpg는 이미 생성되어있을 키스토어를 두고 `%UserProfile%\.gnupg` �
 
 이 상태에서 아까 커밋을 시도할 때처럼 다시 커밋을 해봅시다.
 
-```none
-D:\...\project> git commit -a -m "Some awesome commit"
-
+```text {linenos=false command="git commit -a -m \"Some awesome commit\""}
 [main 4b001fe] Some awesome commit
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```

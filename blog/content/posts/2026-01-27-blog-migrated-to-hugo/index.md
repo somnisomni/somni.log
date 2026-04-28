@@ -2,7 +2,7 @@
 title: Ghost에서 Hugo로 블로그 시스템 마이그레이션
 slug: blog-migrated-to-hugo
 date: 2026-01-27T17:04:30.146Z
-lastmod: 2026-04-25T07:11:13.013Z
+lastmod: 2026-04-28T17:28:43.229Z
 cover:
   image: header.png
   relative: true
@@ -44,7 +44,7 @@ Ghost를 벗어나서 아쉬운건 브라우저 내에서 정돈된 WYSIWYG 에�
 ### Hugo CLI 설치
 저는 [Arch Linux](https://archlinux.org/) 기반 OS를 사용하고 있기에 다음 커맨드로 Hugo CLI를 설치할 수 있었습니다. `extra` 저장소에 있으므로 AUR를 참조할 필요는 없습니다.
 
-```sh{linenos=false}
+```sh {linenos=false}
 $ sudo pacman -S hugo
 ```
 
@@ -99,14 +99,14 @@ VS Code를 글 작성에 좀 더 알맞도록 약간의 커스터마이징을 �
 
 [README 문서](https://github.com/KKKZOZ/hugo-admonitions?tab=readme-ov-file#installation)를 따라 설치해도 되지만, 저는 git submodule을 사용하여 사이트에 추가했습니다.
 
-```sh{linenos=false}
+```sh {linenos=false}
 # 현재 디렉토리가 블로그 리포지토리 루트임을 가정
 # themes 폴더 내에 submodule 추가
 $ git submodule add -b main --depth 1 https://github.com/KKKZOZ/hugo-admonitions themes/hugo-admonitions
 ```
 
-```yaml{linenos=false}
-# 사이트 설정(hugo.yaml)에 `hugo-admonitions` 폴더 추가
+```yaml {linenos=false file="hugo.yaml"}
+# 사이트 설정에 `hugo-admonitions` 폴더 추가
 theme:
   - "hugo-admonitions"  # <--
   - "PaperMod-somni"

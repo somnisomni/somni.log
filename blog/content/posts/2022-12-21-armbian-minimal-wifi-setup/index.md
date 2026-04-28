@@ -11,6 +11,7 @@ aliases:
   - /armbian-minimal-wifi-setup
 cover:
   relative: true
+lastmod: 2026-04-28T17:20:01.028Z
 ---
 
 > [!CONCLUSION] TL;DR
@@ -38,8 +39,7 @@ Armbian CLI 이미지보다 더 경량화된 Minimal 이미지는 ~~이런 것�
 
 `nmcli`를 실행시켜 보면 다음과 비슷하게 출력해줍니다.
 
-```none
-$ nmcli
+```text {linenos=false command="nmcli"}
 end0: unavailable
        "end0"
        ethernet (meson8b-dwmac), XX:XX:XX:XX:XX:XX, hw, mtu 1500
@@ -66,7 +66,7 @@ Wi-Fi 관련 패키지가 정상적으로 설정되어 있고 인터페이스를
 
 어떤 방법으로든 인터넷과 연결된 것이 확인되었다면 (`ping` 등을 활용할 수 있겠죠!) 다음 명령어를 실행해줍시다.
 
-```none caption="NetworkManager와 wpa_supplicant 설치"
+```sh {linenos=false}
 $ sudo apt install network-manager wpasupplicant
 ```
 Wi-Fi를 사용하기 위해 중요한 패키지는 `wpasupplicant`인데, Armbian Minimal 이미지에는 빠져있을거에요. 아마 CLI 이미지에는 포함되어있는 것 같고...

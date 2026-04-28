@@ -11,6 +11,7 @@ tags:
   - 리눅스
 aliases:
   - /working-with-nginx-http3
+lastmod: 2026-04-28T17:27:34.248Z
 ---
 
 > [!CONCLUSION] TL;DR
@@ -44,7 +45,7 @@ HTTP/3는 기존의 TCP를 기반하지 않고 UDP에 기반하는 QUIC 프로�
 
 NGINX 설정 파일에서 HTTP/3를 위한 `Alt-Svc` 헤더는 다음과 같이 추가하면 됩니다.
 
-```nginx{linenos=false}
+```nginx {linenos=false file="/etc/nginx/conf.d/(vhost).conf"}
 server {
   listen 443 quic reuseport;  # HTTP/3
   listen 443 ssl;             # HTTP/2
@@ -54,15 +55,13 @@ server {
   
   # ...
 }
-
-# 그 외 VHost 설정들...
 ```
 
 `add_header` 구문을 `server` 블럭이나 `location` 블럭에 추가하면 됩니다. 경로 별로 HTTP/3 접속 여부를 달리해야 할 이유가 있지 않는 이상 `server` 블럭에 추가하는 것이 깔끔하겠네요. 이렇게 추가하면 대부분의 브라우저에서는 **"서버가 HTTP/3 연결을 지원하긴 하는구나!"** 하고 인식하게 됩니다.
 
 일부 브라우저 또는 테스트 사이트 *([Domsignal HTTP/3 Test](https://domsignal.com/http3-test) 라던가...)* 에서는 HTTP/3 draft 버전까지 지정해줘야 HTTP/3 연결을 진행하는데, 그러기 위해선 다음 헤더값으로 확장할 수 있습니다.
 
-```nginx{linenos=false}
+```nginx {linenos=false}
 add_header Alt-Svc 'h3=":$server_port"; ma=86400, h3-29=":$server_port"; ma=86400, h3-32=":$server_port"; ma=86400, h3-34=":$server_port"; ma=86400';
 ```
 
@@ -99,8 +98,7 @@ BoringSSL은 0-RTT는 지원되는 대신, [하이브리드 SSL 인증서](https
 
 이제 HTTP/3로 연결을 해볼까요?! 우선 cURL을 사용해 연결이 되는지 확인해 보았습니다.
 
-```console{linenos=false}
-$ podman run --rm docker.io/justdanz/curl-http3 curl -IL -X GET --http3 'https://myserver.com'
+```text {linenos=false command="podman run --rm docker.io/justdanz/curl-http3 curl -IL -X GET --http3 'https://myserver.com'"}
 ...
 curl: (55) Failed to connect to myserver.com port 443 after 102 ms: Couldn't connect to server
 ```
@@ -125,7 +123,7 @@ curl: (55) Failed to connect to myserver.com port 443 after 102 ms: Couldn't con
 
 Oracle Cloud에서 돌아가는 Ubuntu 컴퓨트 인스턴스는 거의 무조건 iptables를 사용하기에, `/etc/iptables/rules.v4` 파일을 수정해줍시다.
 
-```properties{linenos=false}
+```properties {linenos=false file="/etc/iptables/rules.v4"}
 # ...
 
 # HTTPS
@@ -138,8 +136,7 @@ Oracle Cloud에서 돌아가는 Ubuntu 컴퓨트 인스턴스는 거의 무조�
 
 수정이 완료되었다면 `iptables-apply` 명령어로 변경 사항을 적용합니다.
 
-```console{linenos=false}
-$ sudo iptables-apply -t 10 /etc/iptables/rules.v4
+```text {linenos=false command="sudo iptables-apply -t 10 /etc/iptables/rules.v4"}
 Stopping fail2ban (via systemctl): fail2ban.service.
 Applying new iptables rules from '/etc/iptables/rules.v4'... done.
 Can you establish NEW connections to the machine? (y/N) y
@@ -149,8 +146,7 @@ Starting fail2ban (via systemctl): fail2ban.service.
 
 이제 다시 cURL을 활용해 HTTP/3 연결을 테스트 해보자구요!
 
-```console{linenos=false}
-$ podman run --rm docker.io/justdanz/curl-http3 curl -sIL -X GET --http3 'https://myserver.com'
+```text {linenos=false command="podman run --rm docker.io/justdanz/curl-http3 curl -IL -X GET --http3 'https://myserver.com'"}
 HTTP/3 200 
 server: somnium
 date: Sat, 06 Jan 2024 15:08:43 GMT
