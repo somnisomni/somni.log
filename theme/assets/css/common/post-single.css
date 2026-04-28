@@ -215,11 +215,64 @@
     border-radius: var(--radius);
 }
 
+.post-content .highlight table td:first-child code {
+    /* line numbers */
+    border-radius: var(--radius) 0 0 var(--radius);
+}
+
+.post-content .highlight table td:nth-child(2) code {
+    /* code content with line numbers */
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+
 .post-content .highlight:not(table) {
+    overflow: hidden;
     margin: 10px auto;
     background: var(--code-block-bg) !important;
     border-radius: var(--radius);
     direction: ltr;
+}
+
+.post-content .code-block-title + .highlight,
+.post-content .code-block-title + .highlight table,
+.post-content .code-block-title + pre {
+    margin-top: 0px;
+    border-radius: var(--radius) 0 var(--radius) var(--radius);
+}
+
+.post-content .code-block-title + .highlight > pre code,
+.post-content .code-block-title + pre code {
+    border-radius: var(--radius) 0 var(--radius) var(--radius);
+}
+
+.post-content .code-block-title + .highlight table td:nth-child(2) code {
+    /* code content with line numbers & code block title */
+    border-radius: 0 0 var(--radius) 0;
+}
+
+.post-content .code-block-title {
+    font-family: var(--font-monospace);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: fit-content;
+    max-width: 90%;
+    margin-left: auto;
+    background: var(--code-block-bg);
+    border-radius: var(--radius) var(--radius) 0 0;
+    border: solid 1px;
+    border-bottom: none;
+    border-color: rgb(from currentColor r g b / 20%);
+    padding: 6px 10px;
+    color: rgba(from var(--base-light) r g b / 80%);
+    text-align: end;
+    font-size: 0.75em;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.post-content .code-block-title * {
+    flex-shrink: 0;
 }
 
 .post-content li>.highlight {
@@ -266,7 +319,7 @@
 .post-content pre code {
     display: grid;
     margin: auto 0;
-    padding: 10px;
+    padding: 12px;
     color: rgb(213, 213, 214);
     background: var(--code-block-bg) !important;
     border-radius: var(--radius);
