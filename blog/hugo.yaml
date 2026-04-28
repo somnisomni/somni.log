@@ -57,6 +57,7 @@ markup:
       unsafe: true
   highlight:
     lineNos: true
+    style: "dracula"
 
 menu:
   main:
