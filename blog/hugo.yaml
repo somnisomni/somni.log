@@ -112,7 +112,7 @@ params:
 
   schema:
     isBlog: true
-    siteName: "솜니 로그"
+    siteName: "솜니.로그"
     siteOwner:
       name: "somni"
       url: "https://somni.one/"
