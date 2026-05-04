@@ -91,7 +91,7 @@ params:
 
   homeInfoParams:
     title: "솜니.로그"
-    content: "somni.log: 솜니가 삽질하고 부딪히고 깨지고 경험하고 배운 것들의 아카이브"
+    content: "somni.log: 솜니가 삽질하고 부딪히고 깨지고 경험하고 배운 것들의 아카이브 <br /> [블로그 소개 ›](/about)"
 
   label:
     text: "somni.log"

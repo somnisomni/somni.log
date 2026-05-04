@@ -72,6 +72,14 @@
     -webkit-line-clamp: 2;
 }
 
+.entry-content > * {
+    color: currentColor;
+}
+
+.entry-content a {
+    text-decoration: underline;
+}
+
 .entry-footer {
     color: var(--secondary);
     font-size: 13px;
