@@ -1,12 +1,9 @@
 ---
 title: QEMU GPU 패스스루 문제 해결 기록
 slug: qemu-passthrough-troubleshooting
-date: 2026-04-28T14:51:01.437Z
-lastmod: 2026-05-03T17:04:37.065Z
-cover:
-  image: ""
-  relative: true
-draft: true
+date: 2026-05-04T07:56:22.320Z
+lastmod: 2026-05-04T07:57:04.920Z
+draft: false
 tags:
   - 리눅스
   - 트러블슈팅
@@ -33,7 +30,7 @@ Windows가 필요하다면 듀얼 부팅을 해볼 수도 있고, 가상 머신�
 - **systemd 버전**: 260.1
 - **libvirt 버전**: 12.2.0
 - **윈도우 매니저**: [Niri](https://github.com/niri-wm/niri)
-- **디스플레이 매니저**: [SDDM](https://github.com/sddm/sddm)
+- **데스크톱 쉘**: [Noctalia Shell](https://github.com/noctalia-dev/noctalia-shell) v4.7.6
 
 
 # GPU + 사운드 카드 동시 패스스루 시 커널 패닉
@@ -286,9 +283,7 @@ nmcli     1951 somni 23u   CHR 226,128      0t0  809 /dev/dri/renderD128
 
 그런데 엥..? 네트워크를 관장하는, 그것도 CLI 프로그램이 대체 왜 GPU를 사용하나..??? 전혀 이해할 수가 없기에 이 범인이 어디서 온 놈인지 알아볼 필요가 있을 것 같네요.
 
-```sh {linenos=false}
-# systemctl을 통해 지정한 PID가 어떤 서비스에서 실행되고 있는지 조회
-$ sudo systemctl status 1951
+```sh {linenos=false command="sudo systemctl status 1951"}
 ● user@1000.service - User Manager for UID 1000
      Loaded: loaded (/usr/lib/systemd/system/user@.service; static)
      ...
@@ -299,8 +294,10 @@ $ sudo systemctl status 1951
              │   └─1951 /usr/bin/nmcli -t monitor
      ...
 
-# 유저 scope으로 다시 조회
-$ systemctl --user status 1951
+# systemctl을 통해 지정한 PID가 어떤 서비스에서 실행되고 있는지 조회
+```
+
+```sh {linenos=false command="systemctl --user status 1951"}
 ● app-niri-sh-1511.scope
      Loaded: loaded (/run/user/1000/systemd/transient/app-niri-sh-1511.scope; transient)
      ...
@@ -308,6 +305,9 @@ $ systemctl --user status 1951
              └─1951 /usr/bin/nmcli -t monitor
 
 4월 29 00:08:01 somni-PC systemd[1383]: Started app-niri-sh-1511.scope.
+
+# 유저 scope으로 다시 조회
+# ... 그저 윈도우 매니저일 뿐일 Niri에서...?
 ```
 
 ```sh{linenos=false command="pstree -p | grep nmcli"}
@@ -325,9 +325,10 @@ $ systemctl --user status 1951
 
 `nmcli`의 PID인 1951을 가지고 `systemctl`과 `pstree`를 통해 어떤 프로세스로부터 스폰되었는지 실마리를 찾을 수 있습니다.
 
-...
+`nmcli`의 부모 프로세스인 `qs`... 바로 쉘 툴킷 중 하나인 [Quickshell](https://quickshell.org/)의 프로세스입니다. Niri가 직접 `nmcli`를 스폰한 게 아니라, Niri가 스폰한 Quickshell 프로세스에서 스폰되었음을 알 수 있겠네요.
 
-https://github.com/noctalia-dev/noctalia-shell/blob/6773c4750a12c9e9af9c4ce2365e083f1d0d0ad8/Services/Networking/NetworkService.qml#L1130
+저는 쉘로 [Noctalia Shell](https://github.com/noctalia-dev/noctalia-shell)을 사용 중이라, 이 쉘에서 네트워크 관리도 관장해준다는 걸 생각해보았을 때 소스 코드를 찾아보면 확증을 찾아볼 수 있겠네요.
+
 ```qml {linenostart=1126, file="NetworkService.qml"}
   // Listen to NetworkManager events in real-time (roaming, auto-connect)  -- ~9mb Memory usage.
   Process {
@@ -336,8 +337,16 @@ https://github.com/noctalia-dev/noctalia-shell/blob/6773c4750a12c9e9af9c4ce2365e
     command: ["nmcli", "-t", "monitor"]
   ...
 ```
+> [Services/Networking/NetworkService.qml#L1130](https://github.com/noctalia-dev/noctalia-shell/blob/6773c4750a12c9e9af9c4ce2365e083f1d0d0ad8/Services/Networking/NetworkService.qml#L1130)
 
-kill all niri-spawned process
+**범인을 확실히 찾아버렸습니다!** Niri가 종료되면서 쉘을 포함한 하위 프로세스들도 모두 종료되었어야 하는데 어떤 이유인지 이 프로세스만 살아남아 버린 것 같네요.
+
+아무튼 범인을 검거했으니 본 목적으로 돌아가서 VM 부팅 시에 할 수 있는 조치를 해줍시다.
+
+`systemctl --user status (PID)`를 했을 때 유닛 이름이 `app-niri-sh-0000.scope`의 형태로 표시되었던걸 기억하시나요? `.scope` 유닛은 [man 페이지](https://www.freedesktop.org/software/systemd/man/latest/systemd.scope.html)에서 설명하는 것처럼, systemd에서 직접 스폰한 것이 아닌 외부 프로그램으로부터 systemd 버스 인터페이스를 통해 생성한 프로세스들을 관리하기 편하게 묶어둔 형태입니다.
+
+묶어두었다니 오히려 좋은 일입니다! 멀리 돌아갈 필요 없이 `app-niri`로 시작하는 모든 유닛을 죽...종료시키면 자연스레 하위 프로세스들도 종료되지 않을까요? 마침 `systemctl`은 대상 유닛 지정에 와일드카드 처리가 가능하기 때문에 훅 스크립트에서 싸그리 날려버려줍시다.
+
 ```diff {linenos=false file="/etc/libvirt/hooks/qemu.d/(VM_name)/prepare/begin/start.sh"}
 ### display manager & wm ###
 systemctl stop display-manager.service
@@ -345,3 +354,7 @@ systemctl isolate multi-user.target
 killall niri
 +systemctl --user -M $HOME_USER@ stop "app-niri-*"
 ```
+
+`$HOME_USER`는 일반 사용자 이름으로 대체하면 됩니다.
+
+이 모든 과정을 겪고 훅 스크립트를 고쳐주어 다시 VM 부팅을 해보면... 깔끔하게 부팅이 됩니다!!!
