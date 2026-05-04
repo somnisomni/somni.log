@@ -2,7 +2,7 @@
 title: QEMU GPU 패스스루 문제 해결 기록
 slug: qemu-passthrough-troubleshooting
 date: 2026-05-04T07:56:22.320Z
-lastmod: 2026-05-04T07:57:04.920Z
+lastmod: 2026-05-04T08:17:45.719Z
 draft: false
 tags:
   - 리눅스
@@ -337,7 +337,7 @@ nmcli     1951 somni 23u   CHR 226,128      0t0  809 /dev/dri/renderD128
     command: ["nmcli", "-t", "monitor"]
   ...
 ```
-> [Services/Networking/NetworkService.qml#L1130](https://github.com/noctalia-dev/noctalia-shell/blob/6773c4750a12c9e9af9c4ce2365e083f1d0d0ad8/Services/Networking/NetworkService.qml#L1130)
+> <small>원본: [Services/Networking/NetworkService.qml#L1130 @ noctalia-dev/noctalia-shell](https://github.com/noctalia-dev/noctalia-shell/blob/6773c4750a12c9e9af9c4ce2365e083f1d0d0ad8/Services/Networking/NetworkService.qml#L1130)</small>
 
 **범인을 확실히 찾아버렸습니다!** Niri가 종료되면서 쉘을 포함한 하위 프로세스들도 모두 종료되었어야 하는데 어떤 이유인지 이 프로세스만 살아남아 버린 것 같네요.
 
@@ -355,6 +355,6 @@ killall niri
 +systemctl --user -M $HOME_USER@ stop "app-niri-*"
 ```
 
-`$HOME_USER`는 일반 사용자 이름으로 대체하면 됩니다.
+`$HOME_USER`는 일반 사용자의 이름으로 대체하면 됩니다.
 
 이 모든 과정을 겪고 훅 스크립트를 고쳐주어 다시 VM 부팅을 해보면... 깔끔하게 부팅이 됩니다!!!
